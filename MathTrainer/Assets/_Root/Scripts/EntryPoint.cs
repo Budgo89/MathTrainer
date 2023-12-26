@@ -1,4 +1,5 @@
 ﻿using _Root.Scripts.Controllers;
+using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
 using MB;
 using Profile;
@@ -18,20 +19,30 @@ internal class EntryPoint : MonoBehaviour
 
     private GameLevel _gameLevel;
     private MainController _mainController;
-    private int _record;
+    private Records _records;
 
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey(SaveKey.RecordKey))
+        _records = new Records();
+        if (PlayerPrefs.HasKey(SaveKey.RecordMultiplicationKey))
         {
-            _record = PlayerPrefs.GetInt(SaveKey.RecordKey);
+            _records.RecordMultiplication = PlayerPrefs.GetInt(SaveKey.RecordMultiplicationKey);
         }
-        else
+        if (PlayerPrefs.HasKey(SaveKey.RecordAdditionKey))
         {
-            _record = 0;
+            _records.RecordAddition = PlayerPrefs.GetInt(SaveKey.RecordAdditionKey);
         }
-        _mainController = new MainController(_placeFor, _swipeDetection, _uiDocument, _uiManager, _record);
+        if (PlayerPrefs.HasKey(SaveKey.RecordDivisionKey))
+        {
+            _records.RecordDivision = PlayerPrefs.GetInt(SaveKey.RecordDivisionKey);
+        }
+        if (PlayerPrefs.HasKey(SaveKey.RecordSubtractionKey))
+        {
+            _records.RecordSubtraction = PlayerPrefs.GetInt(SaveKey.RecordSubtractionKey);
+        }
+        
+        _mainController = new MainController(_placeFor, _swipeDetection, _uiDocument, _uiManager, _records);
 
     }
 

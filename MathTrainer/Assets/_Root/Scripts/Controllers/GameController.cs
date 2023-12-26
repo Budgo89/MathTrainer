@@ -17,6 +17,7 @@ namespace _Root.Scripts.Controllers
         private readonly ProfilePlayers _profilePlayer;
         private IWorldGenerator _worldGenerator;
         private readonly SwipeDetection _swipeDetection;
+        private readonly GameSettings _gameSettings;
 
         private List<PointModel> _pointModels;
         private System.Random _random;
@@ -26,11 +27,13 @@ namespace _Root.Scripts.Controllers
         public event Action<int> VictoryAction;
         public event Action<int> DefeatAction;
 
-        public GameController(ProfilePlayers profilePlayer, IWorldGenerator worldGenerator, SwipeDetection swipeDetection)
+        public GameController(ProfilePlayers profilePlayer, IWorldGenerator worldGenerator, SwipeDetection swipeDetection,
+            GameSettings gameSettings)
         {
             _profilePlayer = profilePlayer;
             _pointModels = worldGenerator.GetPointModels();
             _swipeDetection = swipeDetection;
+            _gameSettings = gameSettings;
             worldGenerator.RestartAction += Restart;
             _random = new System.Random();
             _victoryCondition = _pointModels[GetVictoryCondition()]._itemModels.Сomposition;
@@ -73,7 +76,6 @@ namespace _Root.Scripts.Controllers
                     return;
                 }
             }
-            
             if (pointModel._pointView.FieldEnum == FieldEnum.Vertical)
             {
                 if (direction == Vector2.up)
@@ -81,22 +83,32 @@ namespace _Root.Scripts.Controllers
                     pointModel._pointView.Point2.position = Vector2.Lerp(pointModel._pointView.Point2.position,
                         new Vector2(pointModel._pointView.Point2.position.x,
                             pointModel._pointView.Point2.position.y + 1), Time.time);
-                    
-                    pointModel._itemModels.ItemView2.SetValue(pointModel._itemModels.Сomposition);
+
+                    var item1 = pointModel._itemModels.ItemView1.GetValue();
+                    var item2 = pointModel._itemModels.ItemView2.GetValue();
+                    var composition = GetComposition(item1, item2);
+
+                    pointModel._itemModels.ItemView2.SetValue(composition);
                     pointModel._itemModels.ItemView1.gameObject.SetActive(false);
-                    Check(pointModel._itemModels.Сomposition);
-                }                
+                    Check(composition);
+                }
+
                 if (direction == Vector2.down)
                 {
                     pointModel._pointView.Point1.position = Vector2.Lerp(pointModel._pointView.Point1.position,
                         new Vector2(pointModel._pointView.Point1.position.x,
                             pointModel._pointView.Point1.position.y - 1), Time.time);
                     
-                    pointModel._itemModels.ItemView1.SetValue(pointModel._itemModels.Сomposition);
+                    var item1 = pointModel._itemModels.ItemView1.GetValue();
+                    var item2 = pointModel._itemModels.ItemView2.GetValue();
+                    var composition = GetComposition(item2, item1);
+
+                    pointModel._itemModels.ItemView1.SetValue(composition);
                     pointModel._itemModels.ItemView2.gameObject.SetActive(false);
-                    Check(pointModel._itemModels.Сomposition);
+                    Check(composition);
                 }
             }
+
             if (pointModel._pointView.FieldEnum == FieldEnum.Horizontal)
             {
 
@@ -106,21 +118,43 @@ namespace _Root.Scripts.Controllers
                         new Vector2(pointModel._pointView.Point2.position.x - 1,
                             pointModel._pointView.Point2.position.y), Time.time);
                     
-                    pointModel._itemModels.ItemView2.SetValue(pointModel._itemModels.Сomposition);
+                    var item1 = pointModel._itemModels.ItemView1.GetValue();
+                    var item2 = pointModel._itemModels.ItemView2.GetValue();
+                    var composition = GetComposition(item1, item2);
+
+                    pointModel._itemModels.ItemView2.SetValue(composition);
                     pointModel._itemModels.ItemView1.gameObject.SetActive(false);
-                    Check(pointModel._itemModels.Сomposition);
+                    Check(composition);
                 }
+
                 if (direction == Vector2.right)
                 {
                     pointModel._pointView.Point1.position = Vector2.Lerp(pointModel._pointView.Point1.position,
-                        new Vector2(pointModel._pointView.Point1.position.x +1 ,
+                        new Vector2(pointModel._pointView.Point1.position.x + 1,
                             pointModel._pointView.Point1.position.y), Time.time);
                     
-                    pointModel._itemModels.ItemView1.SetValue(pointModel._itemModels.Сomposition);
+                    var item1 = pointModel._itemModels.ItemView1.GetValue();
+                    var item2 = pointModel._itemModels.ItemView2.GetValue();
+                    var composition = GetComposition(item2, item1);
+
+
+                    pointModel._itemModels.ItemView1.SetValue(composition);
                     pointModel._itemModels.ItemView2.gameObject.SetActive(false);
-                    Check(pointModel._itemModels.Сomposition);
+                    Check(composition);
                 }
             }
+            
+        }
+
+        private int GetComposition(int item1, int item2)
+        {
+            if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication)
+                return item1 * item2;
+            if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition)
+                return item1 + item2;
+            if (_gameSettings.TypeGameEnum == TypeGameEnum.Division)
+                return item1 / item2;
+            return item1 - item2;
         }
 
         private void Check(int response)
@@ -130,5 +164,11 @@ namespace _Root.Scripts.Controllers
             else
                 DefeatAction?.Invoke(_victoryCondition);
         }
+
+        /*protected override void OnDispose()
+        {
+            _worldGenerator.RestartAction -= Restart;
+            _swipeDetection.SwipeEvevt -= OnSwipe;
+        }*/
     }
 }

@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using _Root.Scripts.Interfaces;
 using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
-using _Root.Scripts.View;
 using Controllers;
 using Profile;
-using TMPro;
 using Tool;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -17,8 +14,8 @@ namespace _Root.Scripts.Controllers
     public class GameUIController : BaseController
     {
         private readonly ResourcePath _resourcePathFieldView = new ResourcePath("Ui/GameUI");
-        
-        private readonly ProfilePlayers _profilePlayer;
+
+        private readonly ProfilePlayers _profilePlayers;
         private readonly IWorldGenerator _worldGenerator;
         private readonly GameController _gameController;
         private readonly UIDocument _uiDocument;
@@ -31,18 +28,18 @@ namespace _Root.Scripts.Controllers
         private Label _answer;
         private Label _timer;
 
+        private int _pointCount = 100;
         private int _attemptsCount = 5;
         private int _timerCountBase = 7;
         private int _timerCount = 7;
-        private int _pontsCount = 100;
 
         private Coroutine _timerCoroutine;
 
 
-        public GameUIController(ProfilePlayers profilePlayer, IWorldGenerator worldGenerator,
+        public GameUIController(ProfilePlayers profilePlayers, IWorldGenerator worldGenerator,
             GameController gameController, UIDocument uiDocument, UiManager uiManager)
         {
-            _profilePlayer = profilePlayer;
+            _profilePlayers = profilePlayers;
             _worldGenerator = worldGenerator;
             _gameController = gameController;
             _uiDocument = uiDocument;
@@ -56,13 +53,18 @@ namespace _Root.Scripts.Controllers
             Subscribe();
             _timerCoroutine = CoroutineController.StartRoutine(Timer());
         }
+
+        public int GetPointCount()
+        {
+            return _pointCount;
+        }
         
         private void AddElement()
         {
             _nextButton = _root.Q<Button>(GameUIKey.NextButton);
             
             _points = _root.Q<Label>(GameUIKey.PointsCount);
-            _points.text = _pontsCount.ToString();
+            _points.text = _pointCount.ToString();
             
             _attempts = _root.Q<Label>(GameUIKey.Attempts);
             _attempts.text = _attemptsCount.ToString();
@@ -90,8 +92,8 @@ namespace _Root.Scripts.Controllers
 
         private void VictoryAction(int point)
         {
-            _pontsCount += point;
-            _points.text = _pontsCount.ToString();
+            _pointCount += point;
+            _points.text = _pointCount.ToString();
             if (_timerCoroutine != null)
                 CoroutineController.StopRoutine(_timerCoroutine);
             _worldGenerator.RestartGenerator();
@@ -100,8 +102,8 @@ namespace _Root.Scripts.Controllers
 
         private void DefeatAction(int point)
         {
-            _pontsCount -= point;
-            _points.text = _pontsCount.ToString();
+            _pointCount -= point;
+            _points.text = _pointCount.ToString();
             _attemptsCount -= 1;
             _attempts.text = _attemptsCount.ToString();
             if (_timerCoroutine != null)
@@ -117,15 +119,11 @@ namespace _Root.Scripts.Controllers
             }
         }
 
-        private void GameOver()
-        {
-            Debug.Log("Просрал");
-        }
+        private void GameOver() => _profilePlayers.CurrentState.Value = GameState.GameOver;
+        
 
-        private void ClickNextButton(ClickEvent evt)
-        {
-            Debug.Log("Есть клик");
-        }
+        private void ClickNextButton(ClickEvent evt) => _profilePlayers.CurrentState.Value = GameState.MainMenu;
+        
 
         private void UnsubscribeButton()
         {
