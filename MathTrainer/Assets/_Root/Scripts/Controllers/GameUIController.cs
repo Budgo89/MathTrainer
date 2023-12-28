@@ -34,6 +34,7 @@ namespace _Root.Scripts.Controllers
         private int _timerCount = 7;
 
         private Coroutine _timerCoroutine;
+        private Coroutine _pauseCoroutine;
 
 
         public GameUIController(ProfilePlayers profilePlayers, IWorldGenerator worldGenerator,
@@ -119,8 +120,11 @@ namespace _Root.Scripts.Controllers
             }
         }
 
-        private void GameOver() => _profilePlayers.CurrentState.Value = GameState.GameOver;
-        
+        private void GameOver()
+        {
+            _pauseCoroutine = CoroutineController.StartRoutine(Pause());
+        }
+
 
         private void ClickNextButton(ClickEvent evt) => _profilePlayers.CurrentState.Value = GameState.MainMenu;
         
@@ -149,6 +153,13 @@ namespace _Root.Scripts.Controllers
                 CoroutineController.StopRoutine(_timerCoroutine);
             DefeatAction(_gameController._victoryCondition);
 
+        }
+        
+        private IEnumerator Pause()
+        {
+            yield return new WaitForSeconds(1f);
+            _profilePlayers.CurrentState.Value = GameState.GameOver;
+            CoroutineController.StopRoutine(_pauseCoroutine);
         }
 
     }

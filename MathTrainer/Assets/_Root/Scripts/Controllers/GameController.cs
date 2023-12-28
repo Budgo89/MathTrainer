@@ -165,10 +165,9 @@ namespace _Root.Scripts.Controllers
                 DefeatAction?.Invoke(_victoryCondition);
         }
 
-        /*protected override void OnDispose()
+        protected override void OnDispose()
         {
-            _worldGenerator.RestartAction -= Restart;
             _swipeDetection.SwipeEvevt -= OnSwipe;
-        }*/
+        }
     }
 }

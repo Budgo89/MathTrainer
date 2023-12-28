@@ -22,3 +22,75 @@
     -unity-background-image-tint-color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0);
 }
+
+.Frame {
+    position: relative;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120%;
+    background-color: rgb(119, 245, 245);
+}
+
+.BackgroundButton {
+    background-color: rgb(9, 19, 16);
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    font-size: 40px;
+    color: rgb(119, 245, 245);
+    -unity-text-align: middle-left;
+    -unity-font-style: bold;
+}
+
+.Background {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    background-color: rgb(9, 19, 16);
+}
+
+.BackgroundButton:focus {
+    font-size: 40px;
+    -unity-background-image-tint-color: rgb(68, 251, 185);
+    color: rgb(9, 19, 16);
+    background-color: rgb(68, 251, 185);
+}
+
+.BackgroundButtonMiniPlus {
+    background-color: rgb(9, 19, 16);
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    -unity-text-align: middle-center;
+    -unity-font-style: normal;
+    background-image: url('project://database/Assets/_Root/Images/icon/plus.png?fileID=2800000&guid=f580e6179389aa34cb50a035d06c7863&type=3#plus');
+}
+
+.BackgroundButtonMiniPlus:focus {
+    font-size: 120px;
+    color: rgb(9, 19, 16);
+    -unity-text-align: middle-center;
+    background-image: url('project://database/Assets/_Root/Images/icon/plusFocus.png?fileID=2800000&guid=bd44de0c90799274a9afb2919812e659&type=3#plusFocus');
+}
+
+.BackgroundButtonMiniMinus {
+    background-image: url('project://database/Assets/_Root/Images/icon/minus.png?fileID=2800000&guid=4720d8efa9724dd4ebf2319ce0c203ce&type=3#minus');
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.BackgroundButtonMiniMinus:focus {
+    background-image: url('project://database/Assets/_Root/Images/icon/minusFocus.png?fileID=2800000&guid=cb6c5fe162c40924da70c51a5506938b&type=3#minusFocus');
+}
