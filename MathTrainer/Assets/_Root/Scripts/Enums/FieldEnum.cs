@@ -3,6 +3,7 @@
     public enum FieldEnum
     {
         Vertical,
-        Horizontal
+        Horizontal,
+        Hard
     }
 }

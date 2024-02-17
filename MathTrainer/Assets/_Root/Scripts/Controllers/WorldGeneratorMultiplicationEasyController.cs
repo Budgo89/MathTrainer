@@ -30,8 +30,7 @@ namespace _Root.Scripts.Controllers
         public List<PointModel> _pointModels;
         
         public event Action<List<PointModel>> RestartAction;
-        
-        
+       
         public WorldGeneratorMultiplicationEasyController(Transform placeFor)
         {
             _placeFor = placeFor;
@@ -41,7 +40,14 @@ namespace _Root.Scripts.Controllers
             _resourcePathsPoint.Add(_resourcePathPointVerticalView);
             _random = new Random();
             _fieldView = LoadFieldView(_placeFor);
-            
+        }
+        
+        public void StopGenerator()
+        {
+            foreach (var pointModel in _pointModels)
+            {
+                pointModel.PointView.OnDestroy();
+            }
         }
 
         public List<PointModel> GetPointModels()
@@ -59,7 +65,7 @@ namespace _Root.Scripts.Controllers
         {
             foreach (var pointModel in _pointModels)
             {
-                pointModel._pointView.OnDestroy();
+                pointModel.PointView.OnDestroy();
             }
             
             _pauseCoroutine = CoroutineController.StartRoutine(Pause());
@@ -79,26 +85,13 @@ namespace _Root.Scripts.Controllers
             
             foreach (var point in _fieldView.Points)
             {
-                var item =  GerRandomPoint();
+                var item =  GerRandomPoint(_random);
                 
                 PointModel pointModel = new PointModel();
-                pointModel._pointView = LoadPointView(point, _resourcePathsPoint[item]);
-                pointModel._itemModels =
-                    new ItemModel(LoadItemView(pointModel._pointView.Point1), LoadItemView(pointModel._pointView.Point2), TypeGameEnum.Multiplication);
+                pointModel.PointView = LoadPointView(point, _resourcePathsPoint[item]);
+                pointModel.ItemModels =
+                    new ItemModel(LoadItemView(pointModel.PointView.Point1), LoadItemView(pointModel.PointView.Point2), TypeGameEnum.Multiplication);
                 _pointModels.Add(pointModel);
-            }
-        }
-
-        private int GerRandomPoint()
-        {
-            var item = _random.Next(0, 10);
-            if (item % 2 == 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
             }
         }
         

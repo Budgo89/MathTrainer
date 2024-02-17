@@ -2,9 +2,9 @@
 {
     public class Records
     {
-        public int RecordMultiplication = 0;
-        public int RecordDivision = 0;
-        public int RecordSubtraction = 0;
-        public int RecordAddition = 0;
+        public float RecordMultiplication = 0;
+        public float RecordDivision = 0;
+        public float RecordSubtraction = 0;
+        public float RecordAddition = 0;
     }
 }

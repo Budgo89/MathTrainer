@@ -6,6 +6,6 @@
         public const string Timer = "Timer";
         public const string Answer = "Answer";
         public const string Attempts = "Attempts";
-        public const string NextButton = "Next";
+        public const string BackButton = "BackButton";
     }
 }

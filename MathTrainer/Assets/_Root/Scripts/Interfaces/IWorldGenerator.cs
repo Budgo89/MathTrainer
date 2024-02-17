@@ -11,5 +11,6 @@ namespace _Root.Scripts.Interfaces
         public List<PointModel> GetPointModels();
         public event Action<List<PointModel>> RestartAction;
         public void Dispose();
+        public void StopGenerator();
     }
 }

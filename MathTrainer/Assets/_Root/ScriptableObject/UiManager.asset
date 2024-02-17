@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameUi: {fileID: 9197481963319205126, guid: e91004e9ed98e9e40af017c31d6927a4, type: 3}
   _mainUi: {fileID: 9197481963319205126, guid: bff5ebbfc6ec7e74ca61a6a02e7d4506, type: 3}
-  _gameOverUi: {fileID: 9197481963319205126, guid: 5e7e4f292ed402e4f9695e9f1646a4a6, type: 3}
+  _gameOverUi: {fileID: 9197481963319205126, guid: 7d92ed57252138f45a04ace2cf680cb2, type: 3}
   _typeGameUi: {fileID: 9197481963319205126, guid: f887e356016d5be468a1b4e3518e5000, type: 3}
   _complexityUi: {fileID: 9197481963319205126, guid: 6a17841d048988f4f8e1a45908a00ce7, type: 3}
+  _gameSettingsMenuUi: {fileID: 9197481963319205126, guid: e0a0e5ae215358b4cb5136407c4991e9, type: 3}
+  _recordsUI: {fileID: 9197481963319205126, guid: e5eebb73ebe484e49a505674be27a0ab, type: 3}
+  _settingsUI: {fileID: 9197481963319205126, guid: e1104722f5cb94840a559afcac027056, type: 3}

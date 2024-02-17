@@ -4,7 +4,7 @@ namespace _Root.Scripts
 {
     public class GameSettings
     {
-        public TypeGameEnum TypeGameEnum;
-        public ComplexityEnum ComplexityEnum;
+        public TypeGameEnum TypeGameEnum = TypeGameEnum.Multiplication;
+        public ComplexityEnum ComplexityEnum = ComplexityEnum.Easy;
     }
 }

@@ -4,5 +4,6 @@
     {
         public const string RecordCount = "RecordCount";
         public const string StartButton = "StartButton";
+        public const string RecordButton = "RecordButton";
     }
 }

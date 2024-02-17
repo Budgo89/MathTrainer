@@ -42,6 +42,14 @@ namespace _Root.Scripts.Controllers
             _fieldView = LoadFieldView(_placeFor);
         }
         
+        public void StopGenerator()
+        {
+            foreach (var pointModel in _pointModels)
+            {
+                pointModel.PointView.OnDestroy();
+            }
+        }
+        
         public void StartGenerator()
         {
             WorldGenerator();
@@ -52,7 +60,7 @@ namespace _Root.Scripts.Controllers
         {
             foreach (var pointModel in _pointModels)
             {
-                pointModel._pointView.OnDestroy();
+                pointModel.PointView.OnDestroy();
             }
             
             _pauseCoroutine = CoroutineController.StartRoutine(Pause());
@@ -86,21 +94,16 @@ namespace _Root.Scripts.Controllers
             
             foreach (var point in _fieldView.Points)
             {
-                var item =  GerRandomPoint();
+                var item =  GerRandomPoint(_random);
                 
                 PointModel pointModel = new PointModel();
-                pointModel._pointView = LoadPointView(point, _resourcePathsPoint[item]);
-                var item1 = RandomItem();
-                var item2 = RandomItem(99 - item1);
-                pointModel._itemModels =
-                    new ItemModel(LoadItemView(pointModel._pointView.Point1, item1), LoadItemView(pointModel._pointView.Point2, item2), TypeGameEnum.Addition);
+                pointModel.PointView = LoadPointView(point, _resourcePathsPoint[item]);
+                var item1 = RandomItem(_random,100);
+                var item2 = RandomItem(_random,100);
+                pointModel.ItemModels =
+                    new ItemModel(LoadItemView(pointModel.PointView.Point1, item1), LoadItemView(pointModel.PointView.Point2, item2), TypeGameEnum.Addition);
                 _pointModels.Add(pointModel);
             }
-        }
-
-        private int RandomItem(int max = 98)
-        {
-            return _random.Next(1, max);
         }
         
         private PointView LoadPointView(Transform placeFor, ResourcePath resourcePath)
@@ -123,19 +126,5 @@ namespace _Root.Scripts.Controllers
 
             return item;
         }
-        
-        private int GerRandomPoint()
-        {
-            var item = _random.Next(0, 10);
-            if (item % 2 == 0)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
     }
 }

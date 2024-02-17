@@ -56,7 +56,7 @@
     background-color: rgb(9, 19, 16);
 }
 
-.BackgroundButton:focus {
+.BackgroundButtonFocus {
     font-size: 40px;
     -unity-background-image-tint-color: rgb(68, 251, 185);
     color: rgb(9, 19, 16);
@@ -75,7 +75,7 @@
     background-image: url('project://database/Assets/_Root/Images/icon/plus.png?fileID=2800000&guid=f580e6179389aa34cb50a035d06c7863&type=3#plus');
 }
 
-.BackgroundButtonMiniPlus:focus {
+.BackgroundButtonMiniPlusFocus {
     font-size: 120px;
     color: rgb(9, 19, 16);
     -unity-text-align: middle-center;
@@ -91,6 +91,160 @@
     bottom: 15px;
 }
 
-.BackgroundButtonMiniMinus:focus {
+.BackgroundButtonMiniMinusFocus {
     background-image: url('project://database/Assets/_Root/Images/icon/minusFocus.png?fileID=2800000&guid=cb6c5fe162c40924da70c51a5506938b&type=3#minusFocus');
+}
+
+.BackgroundButtonMiniMultiply {
+    background-image: url('project://database/Assets/_Root/Images/icon/multiply.png?fileID=2800000&guid=aa0461e2fd6889346a9d115f80d2c844&type=3#multiply');
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.BackgroundButtonMiniMultiplyFocus {
+    background-image: url('project://database/Assets/_Root/Images/icon/multiplyFocus.png?fileID=2800000&guid=7e0480b582f8f38419bfca8dd5d374cd&type=3#multiplyFocus');
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.BackgroundButtonMiniDivision {
+    background-image: url('project://database/Assets/_Root/Images/icon/divide.png?fileID=2800000&guid=9bdfac939cacf2146a88874a6ef94ece&type=3#divide');
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.BackgroundButtonMiniDivisionFocus {
+    background-image: url('project://database/Assets/_Root/Images/icon/divideFocus.png?fileID=2800000&guid=21db9ad7ea9a0e2479f3d9d5973a6b92&type=3#divideFocus');
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.Record {
+    left: 15px;
+    top: 15px;
+    right: 100px;
+    bottom: 15px;
+    position: absolute;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Icon {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 15px;
+}
+
+.RecordText {
+    color: rgb(119, 245, 245);
+    font-size: 50px;
+    -unity-text-align: middle-left;
+    -unity-font-style: bold;
+}
+
+.full {
+    width: 320px;
+    height: 80px;
+    background-color: rgb(68, 251, 185);
+    right: auto;
+    left: 15px;
+    -unity-text-align: middle-left;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.text {
+    color: rgb(2, 2, 2);
+    font-size: 50px;
+    -unity-text-align: middle-left;
+    -unity-font-style: bold;
+}
+
+.SoundOnButtonActive {
+    background-image: url('project://database/Assets/_Root/Images/icon/SoundActiv.png?fileID=2800000&guid=8c681c4fe0f1d0947b069d02af2c0dff&type=3#SoundActiv');
+}
+
+.SoundOnButtonDeActive {
+    background-image: url('project://database/Assets/_Root/Images/icon/SoundDeActiv.png?fileID=2800000&guid=cbd57940edcafda409d5d54f092bc7a0&type=3#SoundDeActiv');
+}
+
+.SoundOffDeActive {
+    background-image: url('project://database/Assets/_Root/Images/icon/MuteSoundDeActiv.png?fileID=2800000&guid=387b4c95abea3354799f8fa4a2d75a02&type=3#MuteSoundDeActiv');
+}
+
+.SoundOffActive {
+    background-image: url('project://database/Assets/_Root/Images/icon/MuteSoundActiv.png?fileID=2800000&guid=3e1990a1eabd2544d8b45bc7bfceaf35&type=3#MuteSoundActiv');
+}
+
+#unity-tracker {
+    color: rgb(17, 255, 0);
+    background-color: rgba(68, 251, 185, 0);
+    width: auto;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#unity-dragger-border {
+}
+
+#unity-dragger {
+    opacity: 1;
+    background-image: none;
+    -unity-background-image-tint-color: rgb(68, 251, 185);
+    background-color: rgb(68, 251, 185);
+    height: 76px;
+    -unity-background-scale-mode: stretch-to-fill;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    top: auto;
+    bottom: 2px;
+}
+
+#unity-drag-container {
+    flex-direction: row;
+    align-items: auto;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+#unity-progress-bar {
+    height: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.bar {
+    width: 2000px;
+    height: 100%;
+    background-color: rgba(68, 251, 185, 255);
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-basis: auto;
 }

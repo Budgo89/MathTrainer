@@ -8,27 +8,43 @@ namespace _Root.Scripts.View
     {
         [SerializeField] private TMP_Text _text;
         
-        private int _value;
-        public event Action<int> _action;
+        private float _value;
+        public event Action<float> _action;
 
         private void OnTriggerEnter(Collider other)
         {
             _action?.Invoke(_value);
         }
 
-        public void SetValue(int value)
+        public void SetValue(float value)
         {
             _value = value;
         }
 
-        public int GetValue()
+        public float GetValue()
         {
             return _value;
         }
 
         private void Update()
         {
-            _text.text = _value.ToString();
+            if (_value == 0)
+            {
+                _text.text = "";
+            }
+            else
+            {
+                
+                if (_value % 1 == 0)
+                {
+                    _text.text = _value.ToString();
+                }
+                else
+                {
+                    _text.text = _value.ToString("0.00");
+                }
+            }
+                
         }
     }
 }

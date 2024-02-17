@@ -15,10 +15,10 @@
 
         #region Average
 
-        MultiplicationAverageGame, // *
-        DivisionAverageGame, // деление
-        SubtractionAverageGame, // -
-        AdditionAverageGame, //+
+        MultiplicationNormalGame, // *
+        DivisionNormalGame, // деление
+        SubtractionNormalGame, // -
+        AdditionNormalGame, //+
 
         #endregion
 
@@ -31,8 +31,9 @@
 
         #endregion
 
-        TypeGame,
-        Complexity,
-        GameOver
+        GameOver,
+        GameSettingsMenuUiController,
+        Records,
+        Settings
     }
 }

@@ -8,3 +8,16 @@
     height: 120%;
     transition-duration: 500ms;
 }
+
+.contour {
+    background-color: rgba(119, 245, 245, 255);
+}
+
+.filling {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    background-color: rgba(9, 19, 16, 255);
+}

@@ -1,23 +1,68 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Root/UISettings/MainMenu.uss?fileID=7433441132597879392&amp;guid=f9038cbf44f029f4a98ed3f4044aab15&amp;type=3#MainMenu" />
-    <ui:VisualElement style="width: 100%; height: 100%; justify-content: center; align-items: center; background-image: url(&apos;project://database/Assets/2D%20Casual%20UI/Sprite/GUI.png?fileID=21300056&amp;guid=1eaee135ce037439d925cee5e41ce026&amp;type=3#GUI_28&apos;); -unity-background-image-tint-color: rgb(131, 176, 255); background-color: rgba(0, 0, 0, 0);" />
-    <ui:VisualElement style="position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center;">
-        <ui:VisualElement style="width: 100%; height: 30%; justify-content: center; align-items: center;">
-            <ui:VisualElement style="background-image: url(&apos;project://database/Assets/2D%20Casual%20UI/Sprite/GUI.png?fileID=21300102&amp;guid=1eaee135ce037439d925cee5e41ce026&amp;type=3#GUI_58&apos;); width: 90%; height: 100%; -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(255, 0, 0); justify-content: center; align-items: center;">
-                <ui:Label text="Math Triner" display-tooltip-when-elided="true" style="font-size: 80px; -unity-text-align: middle-center; color: rgb(255, 255, 255); bottom: 50px;" />
+    <ui:VisualElement style="width: 100%; height: 100%; justify-content: center; align-items: center; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_logo.png?fileID=21300000&amp;guid=2db169ae9cda3da44842efb0edcc4e67&amp;type=3#bg_logo&apos;); background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement style="position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center;">
+            <ui:VisualElement name="logo" style="width: auto; height: 100px; justify-content: center; align-items: center; left: 59px; right: 59px; flex-direction: row; position: absolute; top: 140px;">
+                <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/_Root/Images/background/logo.png?fileID=21300000&amp;guid=2f8b2a5950d72144aa7c51840877c9ed&amp;type=3#logo&apos;); width: 100%; height: 100%; -unity-background-scale-mode: scale-to-fit; justify-content: center; align-items: center;" />
             </ui:VisualElement>
-        </ui:VisualElement>
-        <ui:VisualElement style="width: 100%; height: 40%; justify-content: center; align-items: center;">
-            <ui:Button text="Menu" display-tooltip-when-elided="true" name="MenuButton" view-data-key="MenuButton" class="StartButton" style="background-image: url(&apos;project://database/Assets/2D%20Casual%20UI/Sprite/GUI.png?fileID=21300034&amp;guid=1eaee135ce037439d925cee5e41ce026&amp;type=3#GUI_17&apos;); -unity-background-scale-mode: scale-to-fit; background-color: rgba(88, 88, 88, 0); font-size: 50px; color: rgb(0, 0, 0); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />
-        </ui:VisualElement>
-        <ui:VisualElement style="width: 100%; height: 30%;">
-            <ui:VisualElement style="align-items: center; justify-content: center; flex-direction: row; top: 50%;">
-                <ui:Label text="RESULT:" display-tooltip-when-elided="true" name="Result" style="color: rgb(0, 0, 0); font-size: 50px; right: 50px;" />
-                <ui:Label text="3590" display-tooltip-when-elided="true" name="ResultCount" style="font-size: 50px;" />
-            </ui:VisualElement>
-            <ui:VisualElement style="align-items: center; justify-content: center; flex-direction: row; top: 50%;">
-                <ui:Label text="RECORD:" display-tooltip-when-elided="true" name="Record" style="color: rgb(0, 0, 0); font-size: 50px; right: 50px;" />
-                <ui:Label text="3590" display-tooltip-when-elided="true" name="RecordCount" style="font-size: 50px;" />
+            <ui:VisualElement style="width: 100%; height: 30%; -unity-font-style: bold;" />
+            <ui:Button text="MENU" display-tooltip-when-elided="true" name="MenuButton" view-data-key="MenuButton" class="StartButton" style="background-image: url(&apos;project://database/Assets/_Root/Images/btn_l_selected.png?fileID=21300000&amp;guid=9753bbdb6d2cf34488985e209b82ea33&amp;type=3#btn_l_selected&apos;); -unity-background-scale-mode: scale-to-fit; background-color: rgba(88, 88, 88, 0); font-size: 100px; color: rgb(0, 0, 0); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; -unity-font-style: bold; bottom: 318px; position: absolute; height: 185px; left: 140px; right: 140px; width: auto;" />
+            <ui:VisualElement style="left: 140px; right: 140px; position: absolute; top: 704px; width: auto; height: 280px;">
+                <ui:VisualElement name="Points" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245);">
+                    <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
+                        <ui:VisualElement name="full" class="full">
+                            <ui:Label text="POINTS" display-tooltip-when-elided="true" class="text" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="PointsText" style="left: 360px; right: 20px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
+                            <ui:Label text="515156151" display-tooltip-when-elided="true" name="ResultCount" style="left: 20px; font-size: 80px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement style="width: auto; height: 40px;" />
+                <ui:VisualElement name="RecordsMultiplication" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245); display: none;">
+                    <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
+                        <ui:VisualElement name="full" class="full">
+                            <ui:Label text="RECORD" display-tooltip-when-elided="true" class="text" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="PointsText" style="left: 360px; right: 100px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
+                            <ui:Label text="515156151" display-tooltip-when-elided="true" name="RecordsMultiplicationText" style="left: 20px; font-size: 50px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Icon" style="width: 80px; height: 80px; position: absolute; right: 15px; background-image: url(&apos;project://database/Assets/_Root/Images/icon/multiplyFocus.png?fileID=2800000&amp;guid=7e0480b582f8f38419bfca8dd5d374cd&amp;type=3#multiplyFocus&apos;);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="RecordsDivision" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245); display: none;">
+                    <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
+                        <ui:VisualElement name="full" class="full">
+                            <ui:Label text="RECORD" display-tooltip-when-elided="true" class="text" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="PointsText" style="left: 360px; right: 100px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
+                            <ui:Label text="515156151" display-tooltip-when-elided="true" name="RecordsDivisionText" style="left: 20px; font-size: 50px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Icon" style="width: 80px; height: 80px; position: absolute; right: 15px; background-image: url(&apos;project://database/Assets/_Root/Images/icon/divideFocus.png?fileID=2800000&amp;guid=21db9ad7ea9a0e2479f3d9d5973a6b92&amp;type=3#divideFocus&apos;);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="RecordsSubtraction" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245); display: none;">
+                    <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
+                        <ui:VisualElement name="full" class="full">
+                            <ui:Label text="RECORD" display-tooltip-when-elided="true" class="text" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="PointsText" style="left: 360px; right: 100px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
+                            <ui:Label text="515156151" display-tooltip-when-elided="true" name="RecordsSubtractionText" style="left: 20px; font-size: 50px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Icon" style="width: 80px; height: 80px; position: absolute; right: 15px; background-image: url(&apos;project://database/Assets/_Root/Images/icon/minusFocus.png?fileID=2800000&amp;guid=cb6c5fe162c40924da70c51a5506938b&amp;type=3#minusFocus&apos;);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="RecordsAddition" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245); display: none;">
+                    <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
+                        <ui:VisualElement name="full" class="full">
+                            <ui:Label text="RECORD" display-tooltip-when-elided="true" class="text" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="PointsText" style="left: 360px; right: 100px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
+                            <ui:Label text="515156151" display-tooltip-when-elided="true" name="RecordsAdditionText" style="left: 20px; font-size: 50px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Icon" style="width: 80px; height: 80px; position: absolute; right: 15px; background-image: url(&apos;project://database/Assets/_Root/Images/icon/plusFocus.png?fileID=2800000&amp;guid=bd44de0c90799274a9afb2919812e659&amp;type=3#plusFocus&apos;);" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

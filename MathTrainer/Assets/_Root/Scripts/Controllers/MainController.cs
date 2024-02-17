@@ -16,28 +16,31 @@ namespace _Root.Scripts.Controllers
         private readonly UIDocument _uiDocument;
         private readonly UiManager _uiManager;
         private Records _records;
-        
+        private readonly AudioModel _audioModel;
+
         private ProfilePlayers _profilePlayer;
 
         private IWorldGenerator _worldGenerator;
         private GameController _gameController;
         private GameUIController _gameUIController;
         private MainMenuUIController _mainMenuUIController;
-        private GameStateUIController _gameStateUIController;
-        private ComplexityUIController _complexityUIController;
         private GameOverUIController _gameOverUIController;
+        private GameSettingsMenuUiController _gameSettingsMenuUiController;
+        private RecordsUIController _recordsUIController;
+        private SettingsUIController _settingsUIController;
         
         private GameSettings _gameSettings;
-        private int _pointCount = 100;
+        private float _pointCount = 100;
 
         public MainController(Transform placeFor, SwipeDetection swipeDetection, UIDocument uiDocument,
-            UiManager uiManager, Records records)
+            UiManager uiManager, Records records, AudioModel audioModel)
         {
             _placeFor = placeFor;
             _swipeDetection = swipeDetection;
             _uiDocument = uiDocument;
             _uiManager = uiManager;
             _records = records;
+            _audioModel = audioModel;
 
             _gameSettings = new GameSettings();
 
@@ -52,42 +55,99 @@ namespace _Root.Scripts.Controllers
             switch (state)
             {
                 case GameState.MainMenu:
-                    _mainMenuUIController = new MainMenuUIController(_profilePlayer, _uiDocument,_uiManager, _records);
+                    _mainMenuUIController = new MainMenuUIController(_profilePlayer, _uiDocument,_uiManager, _audioModel);
                     break;
-                case GameState.TypeGame:
-                    _gameStateUIController = new GameStateUIController(_profilePlayer, _uiDocument,_uiManager, _gameSettings);
+                case GameState.GameSettingsMenuUiController:
+                    _gameSettingsMenuUiController =
+                        new GameSettingsMenuUiController(_profilePlayer, _uiDocument, _uiManager, _gameSettings, _audioModel);
                     break;
-                case GameState.Complexity:
-                    _complexityUIController = new ComplexityUIController(_profilePlayer, _uiDocument,_uiManager, _gameSettings);
+                case GameState.Records:
+                    _recordsUIController = new RecordsUIController(_profilePlayer, _uiDocument, _uiManager, _records, _audioModel);
                     break;
                 case GameState.MultiplicationEasyGame:
                     _worldGenerator = new WorldGeneratorMultiplicationEasyController(_placeFor);
                     _worldGenerator.StartGenerator();
-                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings);
-                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager);
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
                     break;
                 case GameState.AdditionEasyGame:
                     _worldGenerator = new WorldGeneratorAdditionEasyController(_placeFor);
                     _worldGenerator.StartGenerator();
-                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings);
-                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager);
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
                     break;
                 case GameState.SubtractionEasyGame:
                     _worldGenerator = new WorldGeneratorSubtractionEasyController(_placeFor);
                     _worldGenerator.StartGenerator();
-                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings);
-                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager);
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
                     break;
                 case GameState.DivisionEasyGame:
                     _worldGenerator = new WorldGeneratorDivisionEasyController(_placeFor);
                     _worldGenerator.StartGenerator();
-                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings);
-                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager);
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.MultiplicationNormalGame:
+                    _worldGenerator = new WorldGeneratorMultiplicationNormalController(_placeFor);
+                    _worldGenerator.StartGenerator();
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.AdditionNormalGame:
+                    _worldGenerator = new WorldGeneratorAdditionNormalController(_placeFor);
+                    _worldGenerator.StartGenerator();
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.SubtractionNormalGame:
+                    _worldGenerator = new WorldGeneratorSubtractionNormalController(_placeFor);
+                    _worldGenerator.StartGenerator();
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.DivisionNormalGame:
+                    _worldGenerator = new WorldGeneratorDivisionNormalController(_placeFor);
+                    _worldGenerator.StartGenerator();
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.MultiplicationHardGame:
+                    _worldGenerator = new WorldGeneratorMultiplicationHardController(_placeFor);
+                    _worldGenerator.StartGenerator();
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.AdditionHardGame:
+                    _worldGenerator = new WorldGeneratorAdditionHardController(_placeFor);
+                    _worldGenerator.StartGenerator();
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.SubtractionHardGame:
+                    _worldGenerator = new WorldGeneratorSubtractionHardController(_placeFor);
+                    _worldGenerator.StartGenerator();
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.DivisionHardGame:
+                    _worldGenerator = new WorldGeneratorDivisionHardController(_placeFor);
+                    _worldGenerator.StartGenerator();
+                    _gameController = new GameController(_profilePlayer, _worldGenerator, _swipeDetection, _gameSettings, _audioModel);
+                    _gameUIController = new GameUIController(_profilePlayer, _worldGenerator, _gameController, _uiDocument,_uiManager, _gameSettings, _audioModel);
+                    break;
+                case GameState.Settings:
+                    _settingsUIController = new SettingsUIController(_profilePlayer, _uiDocument,_uiManager, _audioModel);
                     break;
                 case GameState.GameOver:
-                    _gameOverUIController = new GameOverUIController(_profilePlayer, _uiDocument,_uiManager, _records, _pointCount, _gameSettings);
+                    _gameOverUIController = new GameOverUIController(_profilePlayer, _uiDocument,_uiManager, _records, _pointCount, _gameSettings, _audioModel);
                     break;
             }
+        }
+
+        public void Update()
+        {
+            _gameController?.Update();
         }
 
         private void DisposeControllers()
@@ -98,9 +158,10 @@ namespace _Root.Scripts.Controllers
             _gameController?.Dispose();
             _gameUIController?.Dispose();
             _mainMenuUIController?.Dispose();
-            _gameStateUIController?.Dispose();
-            _complexityUIController?.Dispose();
             _gameOverUIController?.Dispose();
+            _gameSettingsMenuUiController?.Dispose();
+            _recordsUIController?.Dispose();
+            _settingsUIController?.Dispose();
         }
     }
 }

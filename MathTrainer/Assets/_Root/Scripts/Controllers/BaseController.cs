@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using Random = System.Random;
 
 namespace Controllers
 {
@@ -56,6 +57,24 @@ namespace Controllers
         {
             _gameObjects ??= new List<GameObject>();
             _gameObjects.Add(gameObject);
+        }
+        
+        protected int RandomItem(Random random, int max = 100)
+        {
+            return random.Next(1, max);
+        }
+        
+        protected int GerRandomPoint(Random random)
+        {
+            var item = random.Next(0, 10);
+            if (item % 2 == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         private void AddDisposableObject(IDisposable disposable)

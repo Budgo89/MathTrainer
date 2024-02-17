@@ -3,7 +3,7 @@
     public enum ComplexityEnum
     {
         Easy,
-        Average,
+        Normal,
         Hard
     }
 }

@@ -1,0 +1,86 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Root/UISettings/MainMenu.uss?fileID=7433441132597879392&amp;guid=f9038cbf44f029f4a98ed3f4044aab15&amp;type=3#MainMenu" />
+    <ui:VisualElement style="position: relative; width: 100%; height: 100%; display: flex; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg.png?fileID=2800000&amp;guid=c0c6792d0b216944d93404b5131b4a5c&amp;type=3#bg&apos;);">
+        <ui:VisualElement style="width: 100%; height: 50%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_gradient_top.png?fileID=2800000&amp;guid=82aa0084c03432b4fa930e5ea105acb0&amp;type=3#bg_gradient_top&apos;); display: none;" />
+        <ui:VisualElement style="height: 50%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_gradient_bottom.png?fileID=2800000&amp;guid=4cec9b3a46b69e44383fdeaee14e4827&amp;type=3#bg_gradient_bottom&apos;); display: none;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="background" style="position: absolute; width: 100%; height: 100%; align-items: center; justify-content: space-between; flex-direction: column; display: flex;">
+        <ui:VisualElement name="top" style="width: 100%; height: 465px; display: flex;">
+            <ui:VisualElement style="position: absolute; left: 0; width: auto; height: auto; top: 0; right: 0; bottom: 0; background-image: url(&apos;project://database/Assets/_Root/Images/background/header.png?fileID=2800000&amp;guid=8cc9762ecfeefe746b88fedfbf533c4f&amp;type=3#header&apos;); background-color: rgba(255, 254, 254, 0); display: none;" />
+            <ui:VisualElement style="position: absolute; bottom: 0; right: 0; top: 0; left: 0; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_grid_top.png?fileID=2800000&amp;guid=b602f4a12b17d4b47904888286a70632&amp;type=3#bg_grid_top&apos;); display: none;" />
+            <ui:VisualElement style="width: 100%; height: 40%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_gradient_shading_top.png?fileID=2800000&amp;guid=1ffd5e8f55c66d1428dfd52a01f012f2&amp;type=3#bg_gradient_shading_top&apos;); display: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.85);" />
+            <ui:VisualElement name="Hat" style="width: 100%; height: 30%; justify-content: center; align-items: center; display: flex; position: absolute; top: 140px;">
+                <ui:VisualElement style="width: auto; height: 120px; flex-direction: row; align-items: auto; left: 60px; right: 60px; overflow: hidden; flex-grow: 0; position: absolute;">
+                    <ui:VisualElement style="width: 120px; height: 120px; left: auto; background-color: rgb(119, 245, 245); align-items: center; justify-content: center;">
+                        <ui:VisualElement style="width: 110px; height: 110px; background-color: rgb(9, 19, 16); align-items: center; justify-content: center;">
+                            <ui:Button display-tooltip-when-elided="true" enable-rich-text="true" name="BackButton" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; background-image: url(&apos;project://database/Assets/_Root/Images/arrow.png?fileID=2800000&amp;guid=7d0ca0f3d5c4f1b4084bcb3597425fc9&amp;type=3#arrow&apos;); width: 92px; height: 92px; -unity-background-scale-mode: scale-to-fit; background-color: rgba(88, 88, 88, 0);" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="MenuLaybel" style="width: auto; height: 120px; justify-content: center; align-items: flex-end; background-color: rgb(119, 245, 245); left: 160px; position: absolute; right: 0;">
+                        <ui:VisualElement style="position: absolute; width: auto; height: auto; background-color: rgb(6, 19, 16); left: 5px; top: 5px; right: 5px; bottom: 5px; justify-content: center; align-items: center;">
+                            <ui:VisualElement style="background-color: rgba(68, 251, 185, 0.75); left: 20px; width: auto; height: auto; justify-content: center; align-items: center; -unity-background-image-tint-color: rgba(255, 255, 255, 0); -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; position: absolute; top: 20px; right: 20px; bottom: 20px;">
+                                <ui:Label text="RECORDS" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 39px; -unity-font-style: bold; color: rgb(0, 0, 0);" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Center" style="width: 100%; align-items: center; justify-content: space-around; height: 1216px;">
+            <ui:VisualElement name="background" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_dots.png?fileID=2800000&amp;guid=643cc3d5edf49a2449488cbebe5196c4&amp;type=3#bg_dots&apos;); position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: none;" />
+            <ui:VisualElement name="Settings" style="width: 100%; height: 75%; flex-direction: column; justify-content: flex-end;">
+                <ui:VisualElement style="position: absolute; top: 0; right: 140px; left: 140px; bottom: 0; justify-content: flex-end;">
+                    <ui:VisualElement name="Addition" style="width: 100%; height: 120px;">
+                        <ui:VisualElement name="Frame" class="Frame">
+                            <ui:VisualElement name="Background" class="Background" style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:VisualElement name="AdditionRecord" class="Record" style="flex-direction: row; align-items: center;">
+                                    <ui:Label text="1251561" display-tooltip-when-elided="true" name="AdditionRecord" class="RecordText" style="-unity-font-style: bold;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="Icon" class="Icon" style="background-image: url(&apos;project://database/Assets/_Root/Images/icon/plusFocus.png?fileID=2800000&amp;guid=bd44de0c90799274a9afb2919812e659&amp;type=3#plusFocus&apos;);" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement style="width: 100%; height: 60px;" />
+                    <ui:VisualElement name="Subtraction" style="width: 100%; height: 120px;">
+                        <ui:VisualElement name="Frame" class="Frame">
+                            <ui:VisualElement name="Background" class="Background" style="justify-content: space-between; flex-direction: row; align-items: center;">
+                                <ui:VisualElement name="SubtractionRecords" class="Record">
+                                    <ui:Label text="56103131" display-tooltip-when-elided="true" name="SubtractionRecords" class="RecordText" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="Icon" class="Icon" style="background-image: url(&apos;project://database/Assets/_Root/Images/icon/minusFocus.png?fileID=2800000&amp;guid=cb6c5fe162c40924da70c51a5506938b&amp;type=3#minusFocus&apos;);" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement style="width: 100%; height: 60px;" />
+                    <ui:VisualElement name="Multiplication" style="width: 100%; height: 120px;">
+                        <ui:VisualElement name="Frame" class="Frame">
+                            <ui:VisualElement name="Background" class="Background" style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:VisualElement name="MultiplicationRecodrs" class="Record">
+                                    <ui:Label text="Label" display-tooltip-when-elided="true" name="MultiplicationRecords" class="RecordText" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="Icon" class="Icon" style="background-image: url(&apos;project://database/Assets/_Root/Images/icon/multiplyFocus.png?fileID=2800000&amp;guid=7e0480b582f8f38419bfca8dd5d374cd&amp;type=3#multiplyFocus&apos;);" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement style="width: 100%; height: 60px;" />
+                    <ui:VisualElement name="Division" style="width: 100%; height: 120px;">
+                        <ui:VisualElement name="Frame" class="Frame">
+                            <ui:VisualElement name="Backgrounds" class="Background" style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:VisualElement name="DivisionRecords" class="Record">
+                                    <ui:Label text="Label" display-tooltip-when-elided="true" name="DivisionRecords" class="RecordText" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="Icon" class="Icon" style="background-image: url(&apos;project://database/Assets/_Root/Images/icon/divideFocus.png?fileID=2800000&amp;guid=21db9ad7ea9a0e2479f3d9d5973a6b92&amp;type=3#divideFocus&apos;);" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="width: 100%; height: 10px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="bottom" style="width: 100%; height: 239px;">
+            <ui:VisualElement style="position: absolute; bottom: 0; right: 0; top: 0; left: 0; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_grid_bottom.png?fileID=2800000&amp;guid=c5ad6454d7edf9c42a4962fa26d7772e&amp;type=3#bg_grid_bottom&apos;); display: none;" />
+            <ui:VisualElement style="position: absolute; width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_gradient_shading_bottom.png?fileID=2800000&amp;guid=1c55c68cb40ddb140b581b71cdfecdf8&amp;type=3#bg_gradient_shading_bottom&apos;); -unity-background-image-tint-color: rgba(255, 255, 255, 0.85); display: none;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement focusable="false" picking-mode="Ignore" style="position: absolute; left: 20px; top: 20px; right: 20px; bottom: 20px; background-image: url(&apos;project://database/Assets/_Root/Images/background/frame_screen.png?fileID=2800000&amp;guid=6482517fae3313141a0f940c057edfb7&amp;type=3#frame_screen&apos;); display: flex; opacity: 1;" />
+</ui:UXML>

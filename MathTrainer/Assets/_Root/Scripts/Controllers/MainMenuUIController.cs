@@ -12,19 +12,20 @@ namespace _Root.Scripts.Controllers
         private readonly ProfilePlayers _profilePlayer;
         private readonly UIDocument _uiDocument;
         private readonly UiManager _uiManager;
-        private readonly Records _records;
+        private readonly AudioModel _audioModel;
         private VisualElement _root;
 
         private Button _buttonGame;
-        private Label _recordLabel;
+        private Button _buttonRecords;
+        private Button _buttonSettings;
 
         public MainMenuUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
-            Records records)
+            AudioModel audioModel)
         {
             _profilePlayer = profilePlayer;
             _uiDocument = uiDocument;
             _uiManager = uiManager;
-            _records = records;
+            _audioModel = audioModel;
 
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.MainUi;
@@ -32,33 +33,37 @@ namespace _Root.Scripts.Controllers
             
             AddElement();
             Subscribe();
-            _recordLabel.text = GetRecord().ToString();
             
         }
 
-        private int GetRecord()
-        {
-            var record = _records.RecordMultiplication;
-            if (record < _records.RecordAddition)
-                record = _records.RecordAddition;
-            if (record < _records.RecordDivision)
-                record = _records.RecordDivision;
-            if (record < _records.RecordSubtraction)
-                record = _records.RecordSubtraction;
-            return record;
-        }
 
         private void Subscribe()
         {
             _buttonGame.RegisterCallback<ClickEvent>(ClickButtonGame);
+            _buttonRecords.RegisterCallback<ClickEvent>(ClickButtonRecords);
+            _buttonSettings.RegisterCallback<ClickEvent>(ClickButtonSettings);
+            _buttonGame.RegisterCallback<ClickEvent>(AudioPlay);
+            _buttonRecords.RegisterCallback<ClickEvent>(AudioPlay);
+            _buttonSettings.RegisterCallback<ClickEvent>(AudioPlay);
         }
 
-        private void ClickButtonGame(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.TypeGame;
+        private void AudioPlay(ClickEvent evt)
+        {
+            _audioModel.AudioEffects.clip = _audioModel.AudioEffectsManager.ButtonClick;
+            _audioModel.AudioEffects.Play();
+        }
+
+        private void ClickButtonSettings(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.Settings;
+
+        private void ClickButtonRecords(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.Records;
+
+        private void ClickButtonGame(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.GameSettingsMenuUiController;
 
         private void AddElement()
         {
             _buttonGame = _root.Q<Button>(MainMenuUIKey.StartButtonKey);
-            _recordLabel = _root.Q<Label>(MainMenuUIKey.RecordCountKey);
+            _buttonRecords = _root.Q<Button>(MainMenuUIKey.RecordButtonKey);
+            _buttonSettings = _root.Q<Button>(MainMenuUIKey.SettingsButton);
         }
     }
 }

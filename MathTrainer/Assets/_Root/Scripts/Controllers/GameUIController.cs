@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Root.Scripts.Enums;
 using _Root.Scripts.Interfaces;
 using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
@@ -20,49 +21,66 @@ namespace _Root.Scripts.Controllers
         private readonly GameController _gameController;
         private readonly UIDocument _uiDocument;
         private readonly UiManager _uiManager;
-        
+        private readonly GameSettings _gameSettings;
+        private readonly AudioModel _audioModel;
+
         private VisualElement _root;
-        private Button _nextButton;
+        private Button _backButton;
         private Label _points;
         private Label _attempts;
         private Label _answer;
         private Label _timer;
 
-        private int _pointCount = 100;
+        private float _pointCount = 100;
         private int _attemptsCount = 5;
         private int _timerCountBase = 7;
         private int _timerCount = 7;
 
         private Coroutine _timerCoroutine;
         private Coroutine _pauseCoroutine;
+        private Coroutine _nextCoroutine;
 
 
         public GameUIController(ProfilePlayers profilePlayers, IWorldGenerator worldGenerator,
-            GameController gameController, UIDocument uiDocument, UiManager uiManager)
+            GameController gameController, UIDocument uiDocument, UiManager uiManager, GameSettings gameSettings,
+            AudioModel audioModel)
         {
             _profilePlayers = profilePlayers;
             _worldGenerator = worldGenerator;
             _gameController = gameController;
             _uiDocument = uiDocument;
             _uiManager = uiManager;
-            
+            _gameSettings = gameSettings;
+            _audioModel = audioModel;
+
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.GameUi;
             _root = _uiDocument.rootVisualElement;
             
             AddElement();
             Subscribe();
+            GetTimerCount();
             _timerCoroutine = CoroutineController.StartRoutine(Timer());
         }
 
-        public int GetPointCount()
+        private void GetTimerCount()
+        {
+            if (_gameSettings.ComplexityEnum == ComplexityEnum.Easy)
+                _timerCountBase = 7;
+            if (_gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                _timerCountBase = 14;
+            if (_gameSettings.ComplexityEnum == ComplexityEnum.Hard)
+                _timerCountBase = 20;
+        }
+
+        public float GetPointCount()
         {
             return _pointCount;
         }
         
         private void AddElement()
         {
-            _nextButton = _root.Q<Button>(GameUIKey.NextButton);
+            _backButton = _root.Q<Button>(GameUIKey.BackButton);
             
             _points = _root.Q<Label>(GameUIKey.PointsCount);
             _points.text = _pointCount.ToString();
@@ -80,10 +98,17 @@ namespace _Root.Scripts.Controllers
 
         private void Subscribe()
         {
-            _nextButton.RegisterCallback<ClickEvent>(ClickNextButton);
+            _backButton.RegisterCallback<ClickEvent>(ClickNextButton);
+            _backButton.RegisterCallback<ClickEvent>(AudioPlay);
             _gameController.VictoryAction += VictoryAction;
             _gameController.DefeatAction += DefeatAction;
             _worldGenerator.RestartAction += UpdateResult;
+        }
+        
+        private void AudioPlay(ClickEvent evt)
+        {
+            _audioModel.AudioEffects.clip = _audioModel.AudioEffectsManager.ButtonClick;
+            _audioModel.AudioEffects.Play();
         }
 
         private void UpdateResult(List<PointModel> obj)
@@ -91,7 +116,7 @@ namespace _Root.Scripts.Controllers
             _answer.text = _gameController._victoryCondition.ToString();
         }
 
-        private void VictoryAction(int point)
+        private void VictoryAction(float point)
         {
             _pointCount += point;
             _points.text = _pointCount.ToString();
@@ -101,7 +126,7 @@ namespace _Root.Scripts.Controllers
             _timerCoroutine = CoroutineController.StartRoutine(Timer());
         }
 
-        private void DefeatAction(int point)
+        private void DefeatAction(float point)
         {
             _pointCount -= point;
             _points.text = _pointCount.ToString();
@@ -126,8 +151,14 @@ namespace _Root.Scripts.Controllers
         }
 
 
-        private void ClickNextButton(ClickEvent evt) => _profilePlayers.CurrentState.Value = GameState.MainMenu;
-        
+        private void ClickNextButton(ClickEvent evt)
+        {
+            _worldGenerator.StopGenerator();
+            if (_timerCoroutine != null)
+                CoroutineController.StopRoutine(_timerCoroutine);
+            _nextCoroutine = CoroutineController.StartRoutine(Next());
+        }
+
 
         private void UnsubscribeButton()
         {
@@ -160,6 +191,13 @@ namespace _Root.Scripts.Controllers
             yield return new WaitForSeconds(1f);
             _profilePlayers.CurrentState.Value = GameState.GameOver;
             CoroutineController.StopRoutine(_pauseCoroutine);
+        }
+        
+        private IEnumerator Next()
+        {
+            yield return new WaitForSeconds(1f);
+            _profilePlayers.CurrentState.Value = GameState.MainMenu;
+            CoroutineController.StopRoutine(_nextCoroutine);
         }
 
     }

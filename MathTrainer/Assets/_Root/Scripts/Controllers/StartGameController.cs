@@ -33,17 +33,17 @@ namespace _Root.Scripts.Controllers
                 _profilePlayer.CurrentState.Value = GameState.SubtractionEasyGame;
             
             if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Average)
-                _profilePlayer.CurrentState.Value = GameState.MultiplicationAverageGame;
+                _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                _profilePlayer.CurrentState.Value = GameState.MultiplicationNormalGame;
             if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Average)
-                _profilePlayer.CurrentState.Value = GameState.AdditionAverageGame;
+                _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                _profilePlayer.CurrentState.Value = GameState.AdditionNormalGame;
             if (_gameSettings.TypeGameEnum == TypeGameEnum.Division &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Average)
-                _profilePlayer.CurrentState.Value = GameState.DivisionAverageGame;
+                _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                _profilePlayer.CurrentState.Value = GameState.DivisionNormalGame;
             if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Average)
-                _profilePlayer.CurrentState.Value = GameState.SubtractionAverageGame;
+                _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                _profilePlayer.CurrentState.Value = GameState.SubtractionNormalGame;
             
             if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
                 _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
