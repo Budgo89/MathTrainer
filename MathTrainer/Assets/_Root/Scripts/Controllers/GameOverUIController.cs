@@ -131,7 +131,11 @@ namespace _Root.Scripts.Controllers
             _audioModel.AudioEffects.Play();
         }
 
-        private void ClickMainMenuButton(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.MainMenu;
+        private void ClickMainMenuButton(ClickEvent evt)
+        {
+            Save();
+            _profilePlayer.CurrentState.Value = GameState.MainMenu;
+        }
 
         private void AddElement()
         {
@@ -146,6 +150,19 @@ namespace _Root.Scripts.Controllers
             _recordsDivisionText = _root.Q<Label>(GameOverKey.RecordsDivisionText);
             _recordsSubtractionText = _root.Q<Label>(GameOverKey.RecordsSubtractionText);
             _recordsAdditionText = _root.Q<Label>(GameOverKey.RecordsAdditionText);
+        }
+
+        private void Save()
+        {
+            PlayerPrefs.SetFloat(SaveKey.RecordMultiplicationKey, _records.RecordMultiplication);
+            PlayerPrefs.SetFloat(SaveKey.RecordAdditionKey, _records.RecordAddition);
+            PlayerPrefs.SetFloat(SaveKey.RecordDivisionKey, _records.RecordDivision);
+            PlayerPrefs.SetFloat(SaveKey.RecordSubtractionKey, _records.RecordSubtraction);
+        }
+
+        protected override void OnDispose()
+        {
+            Save();
         }
     }
 }
