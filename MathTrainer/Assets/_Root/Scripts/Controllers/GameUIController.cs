@@ -126,10 +126,44 @@ namespace _Root.Scripts.Controllers
             _timerCoroutine = CoroutineController.StartRoutine(Timer());
         }
 
+        public void RemoveStylePoint()
+        {
+            _points.RemoveFromClassList(GameUIKey.PointStyle);
+            _points.RemoveFromClassList(GameUIKey.PointStyle1000);
+            _points.RemoveFromClassList(GameUIKey.PointStyle10000);
+        }
+        private void AddPoint(float pointCount)
+        {
+            RemoveStylePoint();
+            if (pointCount >= 1000)
+            {
+                _points.AddToClassList(GameUIKey.PointStyle1000);
+            }
+            else if (pointCount <= -100)
+            {
+                _points.AddToClassList(GameUIKey.PointStyle1000);
+            }
+            else if (pointCount >= 10000)
+            {
+                _points.AddToClassList(GameUIKey.PointStyle10000);
+            }
+            else if (pointCount <= -1000)
+            {
+                _points.AddToClassList(GameUIKey.PointStyle10000);
+            }
+            else
+            {
+                _points.AddToClassList(GameUIKey.PointStyle);
+            }
+            
+            _points.text = pointCount.ToString();
+        }
+        
         private void DefeatAction(float point)
         {
             _pointCount -= point;
-            _points.text = _pointCount.ToString();
+            AddPoint(_pointCount);
+            
             _attemptsCount -= 1;
             _attempts.text = _attemptsCount.ToString();
             if (_timerCoroutine != null)

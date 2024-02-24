@@ -10,7 +10,7 @@
 }
 
 .contour {
-    background-color: rgba(119, 245, 245, 255);
+    background-color: rgb(119, 245, 245);
 }
 
 .filling {
@@ -19,5 +19,17 @@
     top: 5px;
     right: 5px;
     bottom: 5px;
-    background-color: rgba(9, 19, 16, 255);
+    background-color: rgb(9, 19, 16);
+}
+
+.pointStyle1000 {
+    font-size: 70px;
+}
+
+.pointStyle {
+    font-size: 80px;
+}
+
+.pointStyle10000 {
+    font-size: 60px;
 }

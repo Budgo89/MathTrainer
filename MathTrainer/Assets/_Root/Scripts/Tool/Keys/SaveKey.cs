@@ -2,11 +2,12 @@
 {
     public static class SaveKey
     {
-        public const string RecordMultiplicationKey = "RecordMultiplicationKeyMathTrainer";
-        public const string RecordDivisionKey = "RecordDivisionKeyMathTrainer";
-        public const string RecordSubtractionKey = "RecordSubtractionKeyMathTrainer";
-        public const string RecordAdditionKey = "RecordAdditionKeyMathTrainer";
-        public const string AudioValue = "AudioValueMathTrainer";
-        public const string IsAudio = "IsAudioMathTrainer";
+        public const string RecordMultiplicationKey = "RecordMultiplicationKeyMathMerge";
+        public const string RecordDivisionKey = "RecordDivisionKeyMathMerge";
+        public const string RecordSubtractionKey = "RecordSubtractionKeyMathMerge";
+        public const string RecordAdditionKey = "RecordAdditionKeyMathMerge";
+        public const string AudioValue = "AudioValueMathMerge";
+        public const string IsAudio = "IsAudioMathMerge";
+        public const string Test = "MathMerge";
     }
 }

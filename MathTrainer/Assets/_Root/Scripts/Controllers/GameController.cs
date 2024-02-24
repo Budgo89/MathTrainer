@@ -516,8 +516,8 @@ namespace _Root.Scripts.Controllers
             if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition)
                 return item1 + item2;
             if (_gameSettings.TypeGameEnum == TypeGameEnum.Division)
-                return item1 / item2;
-            return (item1 - item2);
+                return item2 / item1;
+            return (item2 - item1);
         }
 
         private void Check(float response)

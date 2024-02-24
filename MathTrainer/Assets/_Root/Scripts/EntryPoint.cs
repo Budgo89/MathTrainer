@@ -34,19 +34,19 @@ internal class EntryPoint : MonoBehaviour
         _records = new Records();
         if (PlayerPrefs.HasKey(SaveKey.RecordMultiplicationKey))
         {
-            _records.RecordMultiplication = PlayerPrefs.GetInt(SaveKey.RecordMultiplicationKey);
+            _records.RecordMultiplication = PlayerPrefs.GetFloat(SaveKey.RecordMultiplicationKey);
         }
         if (PlayerPrefs.HasKey(SaveKey.RecordAdditionKey))
         {
-            _records.RecordAddition = PlayerPrefs.GetInt(SaveKey.RecordAdditionKey);
+            _records.RecordAddition = PlayerPrefs.GetFloat(SaveKey.RecordAdditionKey);
         }
         if (PlayerPrefs.HasKey(SaveKey.RecordDivisionKey))
         {
-            _records.RecordDivision = PlayerPrefs.GetInt(SaveKey.RecordDivisionKey);
+            _records.RecordDivision = PlayerPrefs.GetFloat(SaveKey.RecordDivisionKey);
         }
         if (PlayerPrefs.HasKey(SaveKey.RecordSubtractionKey))
         {
-            _records.RecordSubtraction = PlayerPrefs.GetInt(SaveKey.RecordSubtractionKey);
+            _records.RecordSubtraction = PlayerPrefs.GetFloat(SaveKey.RecordSubtractionKey);
         }
 
         AudioModel audioModel = new AudioModel(_audioMixer, _audioEffectsManager, _audioEffects);
@@ -69,19 +69,22 @@ internal class EntryPoint : MonoBehaviour
                 
         }
         
-        float volume = 1;
+        float volume = 0;
         if (PlayerPrefs.HasKey(SaveKey.AudioValue))
         {
             volume = PlayerPrefs.GetFloat(SaveKey.AudioValue);
-            _audioMixer.SetFloat("Volume", (float)(Math.Log10(volume/100) * 20));
+            float value = (float)(Math.Log10(volume / 100) * 20);
+            _audioMixer.SetFloat("Volume", value);
         }
-        _audioMixer.SetFloat("Volume", 0);
+        else
+        {
+            _audioMixer.SetFloat("Volume", 0f);
+        }
     }
 
     private void Update()
     {
         _mainController?.Update();
-
     }
 
 }

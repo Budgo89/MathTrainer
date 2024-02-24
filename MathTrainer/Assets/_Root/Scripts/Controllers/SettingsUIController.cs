@@ -68,7 +68,8 @@ namespace _Root.Scripts.Controllers
                 _isAudio = isAudio != 0;
                 if (!_isAudio)
                 {
-                    _audioModel.AudioMixer.SetFloat("Volume", -100);
+                    float value = -100f; 
+                    _audioModel.AudioMixer.SetFloat("Volume", value);
                     
                     RemoveStyle();
                     _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonDeActive);
@@ -114,7 +115,8 @@ namespace _Root.Scripts.Controllers
             {
                 float volume = _slider.value / 100;
                 volume = volume == 0 ? 0.00001f : volume;
-                _audioModel.AudioMixer.SetFloat("Volume", (float)(Math.Log10(volume) * 20));
+                float value = (float)(Math.Log10(volume) * 20);
+                _audioModel.AudioMixer.SetFloat("Volume", value);
             }
             
         }
@@ -125,7 +127,8 @@ namespace _Root.Scripts.Controllers
             _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonDeActive);
             _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffActive);
             _isAudio = false;
-            _audioModel.AudioMixer.SetFloat("Volume", -100);
+            float value = -100f;
+            _audioModel.AudioMixer.SetFloat("Volume", value);
         }
 
         private void RemoveStyle()
@@ -144,7 +147,8 @@ namespace _Root.Scripts.Controllers
             _isAudio = true;
             float volume = _slider.value / 100;
             volume = volume == 0 ? 0.00001f : volume;
-            _audioModel.AudioMixer.SetFloat("Volume", (float)(Math.Log10(volume) * 20));
+            float value = (float)(Math.Log10(volume) * 20);
+            _audioModel.AudioMixer.SetFloat("Volume", value);
         }
 
 
@@ -158,7 +162,7 @@ namespace _Root.Scripts.Controllers
             _bar.AddToClassList(SettingsUIKey.Bar);
             _bar.style.alignSelf = new StyleEnum<Align>(Align.FlexEnd);
             
-            float value = 1;
+            float value = 100;
             if (PlayerPrefs.HasKey(SaveKey.AudioValue))
             {
                 value = PlayerPrefs.GetFloat(SaveKey.AudioValue);
