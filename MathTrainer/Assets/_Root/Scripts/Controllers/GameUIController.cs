@@ -119,7 +119,7 @@ namespace _Root.Scripts.Controllers
         private void VictoryAction(float point)
         {
             _pointCount += point;
-            _points.text = _pointCount.ToString();
+            AddPoint(_pointCount);
             if (_timerCoroutine != null)
                 CoroutineController.StopRoutine(_timerCoroutine);
             _worldGenerator.RestartGenerator();

@@ -23,7 +23,7 @@
 }
 
 .pointStyle1000 {
-    font-size: 70px;
+    font-size: 60px;
 }
 
 .pointStyle {
@@ -31,5 +31,5 @@
 }
 
 .pointStyle10000 {
-    font-size: 60px;
+    font-size: 50px;
 }
