@@ -24,9 +24,9 @@ namespace _Root.Scripts.Controllers
         private VisualElement _visualElementOnSound;
         private VisualElement _visualElementOffSound;
         private Slider _slider;
-        private ProgressBar _progressBar;
         private VisualElement _bar;
         private VisualElement _dragger;
+        private Label _progressText;
 
         private bool _isAudio;
         
@@ -52,6 +52,7 @@ namespace _Root.Scripts.Controllers
             _backButton = _root.Q<Button>(SettingsUIKey.BackButton);
             _visualElementOnSound = _root.Q<VisualElement>(SettingsUIKey.SoundOnIcon);
             _visualElementOffSound = _root.Q<VisualElement>(SettingsUIKey.SoundOffIcon);
+            _progressText = _root.Q<Label>(SettingsUIKey.ProgressText);
             AddButtonSound();
             AddSlider();
         }
@@ -114,9 +115,16 @@ namespace _Root.Scripts.Controllers
             if (_isAudio)
             {
                 float volume = _slider.value / 100;
+                
                 volume = volume == 0 ? 0.00001f : volume;
                 float value = (float)(Math.Log10(volume) * 20);
                 _audioModel.AudioMixer.SetFloat("Volume", value);
+                
+                IndicateValueOnSound();
+            }
+            else
+            {
+                IndicateValueOffSound();
             }
             
         }
@@ -129,6 +137,8 @@ namespace _Root.Scripts.Controllers
             _isAudio = false;
             float value = -100f;
             _audioModel.AudioMixer.SetFloat("Volume", value);
+
+            IndicateValueOffSound();
         }
 
         private void RemoveStyle()
@@ -149,8 +159,22 @@ namespace _Root.Scripts.Controllers
             volume = volume == 0 ? 0.00001f : volume;
             float value = (float)(Math.Log10(volume) * 20);
             _audioModel.AudioMixer.SetFloat("Volume", value);
+
+            IndicateValueOnSound();
         }
 
+        private void IndicateValueOffSound()
+        {
+            string progressText = 0 + "%";
+            _progressText.text = progressText;
+        }
+
+        private void IndicateValueOnSound()
+        {
+            int rogress = (int)_slider.value;
+            string progressText = rogress + "%";
+            _progressText.text = progressText;
+        }
 
         private void AddSlider()
         {
@@ -168,7 +192,8 @@ namespace _Root.Scripts.Controllers
                 value = PlayerPrefs.GetFloat(SaveKey.AudioValue);
             }
             _slider.value = value;
-            
+            IndicateValueOnSound();
+
         }
 
             private void ClickBackButton(ClickEvent evt)

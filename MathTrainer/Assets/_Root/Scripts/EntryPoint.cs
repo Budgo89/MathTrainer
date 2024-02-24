@@ -63,7 +63,8 @@ internal class EntryPoint : MonoBehaviour
             int isAudio = PlayerPrefs.GetInt(SaveKey.IsAudio);
             if (isAudio == 0)
             {
-                _audioMixer.SetFloat("Volume", -100);
+                float value = -100f;
+                _audioMixer.SetFloat("Volume", value);
                 return;
             }
                 
@@ -78,7 +79,8 @@ internal class EntryPoint : MonoBehaviour
         }
         else
         {
-            _audioMixer.SetFloat("Volume", 0f);
+            float value = 0f;
+            _audioMixer.SetFloat("Volume", value);
         }
     }
 
