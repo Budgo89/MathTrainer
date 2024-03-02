@@ -49,3 +49,7 @@
 .AdditionIcon {
     background-image: url('project://database/Assets/_Root/Images/icon/plusFocus.png?fileID=2800000&guid=bd44de0c90799274a9afb2919812e659&type=3#plusFocus');
 }
+
+.pointStyle100000 {
+    font-size: 30px;
+}

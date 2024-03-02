@@ -11,6 +11,7 @@
         public const string PointStyle = "pointStyle";
         public const string PointStyle1000 = "pointStyle1000";
         public const string PointStyle10000 = "pointStyle10000";
+        public const string PointStyle100000 = "pointStyle100000";
 
         public const string MultiplicationIcon = "MultiplicationIcon"; // *
         public const string DivisionIcon = "DivisionIcon"; // деление

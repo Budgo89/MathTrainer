@@ -173,7 +173,7 @@ namespace _Root.Scripts.Controllers
             }
             else if (pointCount <= -1000)
             {
-                _points.AddToClassList(GameUIKey.PointStyle10000);
+                _points.AddToClassList(GameUIKey.PointStyle100000);
             }
             else
             {
