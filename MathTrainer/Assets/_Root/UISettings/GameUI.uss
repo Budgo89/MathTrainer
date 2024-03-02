@@ -27,9 +27,25 @@
 }
 
 .pointStyle {
-    font-size: 80px;
+    font-size: 75px;
 }
 
 .pointStyle10000 {
     font-size: 50px;
+}
+
+.MultiplicationIcon {
+    background-image: url('project://database/Assets/_Root/Images/icon/multiplyFocus.png?fileID=2800000&guid=7e0480b582f8f38419bfca8dd5d374cd&type=3#multiplyFocus');
+}
+
+.DivisionIcon {
+    background-image: url('project://database/Assets/_Root/Images/icon/divideFocus.png?fileID=2800000&guid=21db9ad7ea9a0e2479f3d9d5973a6b92&type=3#divideFocus');
+}
+
+.SubtractionIcon {
+    background-image: url('project://database/Assets/_Root/Images/icon/minusFocus.png?fileID=2800000&guid=cb6c5fe162c40924da70c51a5506938b&type=3#minusFocus');
+}
+
+.AdditionIcon {
+    background-image: url('project://database/Assets/_Root/Images/icon/plusFocus.png?fileID=2800000&guid=bd44de0c90799274a9afb2919812e659&type=3#plusFocus');
 }

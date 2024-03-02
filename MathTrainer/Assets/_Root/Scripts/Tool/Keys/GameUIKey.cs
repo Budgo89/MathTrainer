@@ -11,5 +11,11 @@
         public const string PointStyle = "pointStyle";
         public const string PointStyle1000 = "pointStyle1000";
         public const string PointStyle10000 = "pointStyle10000";
+
+        public const string MultiplicationIcon = "MultiplicationIcon"; // *
+        public const string DivisionIcon = "DivisionIcon"; // деление
+        public const string SubtractionIcon = "SubtractionIcon"; // -
+        public const string AdditionIcon = "AdditionIcon"; //+
+        public const string TypeGameVisualElement = "TypeGame";
     }
 }

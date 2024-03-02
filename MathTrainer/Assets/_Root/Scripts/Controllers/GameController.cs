@@ -31,7 +31,7 @@ namespace _Root.Scripts.Controllers
         private bool _isRight = false;
         private bool _isHard = false;
 
-        private PointModel pointModel;
+        private PointModel _pointModel;
         
         private float time = 0.2f;
 
@@ -68,7 +68,7 @@ namespace _Root.Scripts.Controllers
 
         public void Update()
         {
-            if (pointModel == null)
+            if (_pointModel == null)
             {
                 return;
             }
@@ -77,29 +77,29 @@ namespace _Root.Scripts.Controllers
             {
                 if (_isHard)
                 {
-                    if (pointModel.MoveOption == MoveOption.Non)
+                    if (_pointModel.MoveOption == MoveOption.Non)
                     {
-                        pointModel.PointView.Point1.position = Vector2.Lerp(pointModel.PointView.Point1.position,
-                            pointModel.PointView.Point3.position, time);
+                        _pointModel.PointView.Point1.position = Vector2.Lerp(_pointModel.PointView.Point1.position,
+                            _pointModel.PointView.Point3.position, time);
                     
-                        pointModel.PointView.Point2.position = Vector2.Lerp(pointModel.PointView.Point2.position,
-                            pointModel.PointView.Point4.position, time); 
+                        _pointModel.PointView.Point2.position = Vector2.Lerp(_pointModel.PointView.Point2.position,
+                            _pointModel.PointView.Point4.position, time); 
                     }
-                    if (pointModel.MoveOption == MoveOption.VerticalRight)
+                    if (_pointModel.MoveOption == MoveOption.VerticalRight)
                     {
-                        pointModel.PointView.Point2.position = Vector2.Lerp(pointModel.PointView.Point2.position,
-                            pointModel.PointView.Point4.position, time); 
+                        _pointModel.PointView.Point2.position = Vector2.Lerp(_pointModel.PointView.Point2.position,
+                            _pointModel.PointView.Point4.position, time); 
                     }
-                    if (pointModel.MoveOption == MoveOption.VerticalLeft)
+                    if (_pointModel.MoveOption == MoveOption.VerticalLeft)
                     {
-                        pointModel.PointView.Point1.position = Vector2.Lerp(pointModel.PointView.Point1.position,
-                            pointModel.PointView.Point3.position, time); 
+                        _pointModel.PointView.Point1.position = Vector2.Lerp(_pointModel.PointView.Point1.position,
+                            _pointModel.PointView.Point3.position, time); 
                     }
                 }
                 else
                 {
-                    pointModel.PointView.Point1.position = Vector2.Lerp(pointModel.PointView.Point1.position,
-                        pointModel.PointView.Point2.position, time);
+                    _pointModel.PointView.Point1.position = Vector2.Lerp(_pointModel.PointView.Point1.position,
+                        _pointModel.PointView.Point2.position, time);
                 }
             }
 
@@ -107,30 +107,30 @@ namespace _Root.Scripts.Controllers
             {
                 if (_isHard)
                 {
-                    if (pointModel.MoveOption == MoveOption.Non)
+                    if (_pointModel.MoveOption == MoveOption.Non)
                     {
-                        pointModel.PointView.Point3.position = Vector2.Lerp(pointModel.PointView.Point3.position,
-                            pointModel.PointView.Point1.position, time);
+                        _pointModel.PointView.Point3.position = Vector2.Lerp(_pointModel.PointView.Point3.position,
+                            _pointModel.PointView.Point1.position, time);
 
-                        pointModel.PointView.Point4.position = Vector2.Lerp(pointModel.PointView.Point4.position,
-                            pointModel.PointView.Point2.position, time);
+                        _pointModel.PointView.Point4.position = Vector2.Lerp(_pointModel.PointView.Point4.position,
+                            _pointModel.PointView.Point2.position, time);
                     }
 
-                    if (pointModel.MoveOption == MoveOption.VerticalRight)
+                    if (_pointModel.MoveOption == MoveOption.VerticalRight)
                     {
-                        pointModel.PointView.Point4.position = Vector2.Lerp(pointModel.PointView.Point4.position,
-                            pointModel.PointView.Point1.position, time); 
+                        _pointModel.PointView.Point4.position = Vector2.Lerp(_pointModel.PointView.Point4.position,
+                            _pointModel.PointView.Point1.position, time); 
                     }
-                    if (pointModel.MoveOption == MoveOption.VerticalLeft)
+                    if (_pointModel.MoveOption == MoveOption.VerticalLeft)
                     {
-                        pointModel.PointView.Point3.position = Vector2.Lerp(pointModel.PointView.Point3.position,
-                            pointModel.PointView.Point1.position, time); 
+                        _pointModel.PointView.Point3.position = Vector2.Lerp(_pointModel.PointView.Point3.position,
+                            _pointModel.PointView.Point1.position, time); 
                     }
                 }
                 else
                 {
-                    pointModel.PointView.Point2.position = Vector2.Lerp(pointModel.PointView.Point2.position,
-                        pointModel.PointView.Point1.position, time);
+                    _pointModel.PointView.Point2.position = Vector2.Lerp(_pointModel.PointView.Point2.position,
+                        _pointModel.PointView.Point1.position, time);
                 }
 
             }
@@ -139,29 +139,29 @@ namespace _Root.Scripts.Controllers
             {
                 if (_isHard)
                 {
-                    if (pointModel.MoveOption == MoveOption.Non)
+                    if (_pointModel.MoveOption == MoveOption.Non)
                     {
-                        pointModel.PointView.Point2.position = Vector2.Lerp(pointModel.PointView.Point2.position,
-                            pointModel.PointView.Point1.position, time);
+                        _pointModel.PointView.Point2.position = Vector2.Lerp(_pointModel.PointView.Point2.position,
+                            _pointModel.PointView.Point1.position, time);
 
-                        pointModel.PointView.Point4.position = Vector2.Lerp(pointModel.PointView.Point4.position,
-                            pointModel.PointView.Point3.position, time);
+                        _pointModel.PointView.Point4.position = Vector2.Lerp(_pointModel.PointView.Point4.position,
+                            _pointModel.PointView.Point3.position, time);
                     }
-                    if (pointModel.MoveOption == MoveOption.HorizontalUp)
+                    if (_pointModel.MoveOption == MoveOption.HorizontalUp)
                     {
-                        pointModel.PointView.Point2.position = Vector2.Lerp(pointModel.PointView.Point2.position,
-                            pointModel.PointView.Point1.position, time); 
+                        _pointModel.PointView.Point2.position = Vector2.Lerp(_pointModel.PointView.Point2.position,
+                            _pointModel.PointView.Point1.position, time); 
                     }
-                    if (pointModel.MoveOption == MoveOption.HorizontalDown)
+                    if (_pointModel.MoveOption == MoveOption.HorizontalDown)
                     {
-                        pointModel.PointView.Point4.position = Vector2.Lerp(pointModel.PointView.Point4.position,
-                            pointModel.PointView.Point3.position, time); 
+                        _pointModel.PointView.Point4.position = Vector2.Lerp(_pointModel.PointView.Point4.position,
+                            _pointModel.PointView.Point3.position, time); 
                     }
                 }
                 else
                 {
-                    pointModel.PointView.Point2.position = Vector2.Lerp(pointModel.PointView.Point2.position,
-                        pointModel.PointView.Point1.position, time);
+                    _pointModel.PointView.Point2.position = Vector2.Lerp(_pointModel.PointView.Point2.position,
+                        _pointModel.PointView.Point1.position, time);
                 }
 
             }
@@ -170,29 +170,29 @@ namespace _Root.Scripts.Controllers
             {
                 if (_isHard)
                 {
-                    if (pointModel.MoveOption == MoveOption.Non)
+                    if (_pointModel.MoveOption == MoveOption.Non)
                     {
-                        pointModel.PointView.Point1.position = Vector2.Lerp(pointModel.PointView.Point1.position,
-                            pointModel.PointView.Point2.position, time);
+                        _pointModel.PointView.Point1.position = Vector2.Lerp(_pointModel.PointView.Point1.position,
+                            _pointModel.PointView.Point2.position, time);
                     
-                        pointModel.PointView.Point3.position = Vector2.Lerp(pointModel.PointView.Point3.position,
-                            pointModel.PointView.Point4.position, time);
+                        _pointModel.PointView.Point3.position = Vector2.Lerp(_pointModel.PointView.Point3.position,
+                            _pointModel.PointView.Point4.position, time);
                     }
-                    if (pointModel.MoveOption == MoveOption.HorizontalUp)
+                    if (_pointModel.MoveOption == MoveOption.HorizontalUp)
                     {
-                        pointModel.PointView.Point1.position = Vector2.Lerp(pointModel.PointView.Point1.position,
-                            pointModel.PointView.Point2.position, time); 
+                        _pointModel.PointView.Point1.position = Vector2.Lerp(_pointModel.PointView.Point1.position,
+                            _pointModel.PointView.Point2.position, time); 
                     }
-                    if (pointModel.MoveOption == MoveOption.HorizontalDown)
+                    if (_pointModel.MoveOption == MoveOption.HorizontalDown)
                     {
-                        pointModel.PointView.Point3.position = Vector2.Lerp(pointModel.PointView.Point3.position,
-                            pointModel.PointView.Point4.position, time); 
+                        _pointModel.PointView.Point3.position = Vector2.Lerp(_pointModel.PointView.Point3.position,
+                            _pointModel.PointView.Point4.position, time); 
                     }
                 }
                 else
                 {
-                    pointModel.PointView.Point1.position = Vector2.Lerp(pointModel.PointView.Point1.position,
-                        pointModel.PointView.Point2.position, time);
+                    _pointModel.PointView.Point1.position = Vector2.Lerp(_pointModel.PointView.Point1.position,
+                        _pointModel.PointView.Point2.position, time);
                 }
 
             }
@@ -232,32 +232,32 @@ namespace _Root.Scripts.Controllers
             if (hit.collider == null) return;
             var pointView = hit.collider.gameObject.GetComponent<PointView>();
             if (pointView == null) return;
-            pointModel = _pointModels.Find(x => x.PointView == pointView);
+            _pointModel = _pointModels.Find(x => x.PointView == pointView);
 
             
-            if (!pointModel.PointView.IsWrite)
+            if (!_pointModel.PointView.IsWrite)
             {
-                _fieldEnum = pointModel.PointView.FieldEnum;
-                pointModel.PointView.SetIsWrite();
+                _fieldEnum = _pointModel.PointView.FieldEnum;
+                _pointModel.PointView.SetIsWrite();
             }
 
-            if (pointModel.IsHard == false)
+            if (_pointModel.IsHard == false)
             {
-                if (pointModel.ItemModels.ItemView2.gameObject.activeSelf == false ||
-                    pointModel.ItemModels.ItemView1.gameObject.activeSelf == false)
+                if (_pointModel.ItemModels.ItemView2.gameObject.activeSelf == false ||
+                    _pointModel.ItemModels.ItemView1.gameObject.activeSelf == false)
                 {
                     return;
                 }
             }
 
-            if (pointModel.PointView.FieldEnum == FieldEnum.Vertical)
+            if (_pointModel.PointView.FieldEnum == FieldEnum.Vertical)
             {
                 if (direction == Vector2.up)
                 {
                     _isUp = true;
                     _delayUItemView1 = CoroutineController.StartRoutine(DelayItemView1());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView2, pointModel.ItemModels.ItemView1);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView2, _pointModel.ItemModels.ItemView1);
                     
                     Check(composition);
                 }
@@ -268,7 +268,7 @@ namespace _Root.Scripts.Controllers
                     
                     _delayUItemView2 = CoroutineController.StartRoutine(DelayItemView2());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView1, pointModel.ItemModels.ItemView2);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView1, _pointModel.ItemModels.ItemView2);
                     
                     Check(composition);
                 }
@@ -276,7 +276,7 @@ namespace _Root.Scripts.Controllers
                 _fieldEnum = FieldEnum.Vertical;
             }
 
-            if (pointModel.PointView.FieldEnum == FieldEnum.Horizontal)
+            if (_pointModel.PointView.FieldEnum == FieldEnum.Horizontal)
             {
 
                 if (direction == Vector2.left)
@@ -284,7 +284,7 @@ namespace _Root.Scripts.Controllers
                     _isLeft = true;
                     _delayUItemView1 = CoroutineController.StartRoutine(DelayItemView1());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView2, pointModel.ItemModels.ItemView1);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView2, _pointModel.ItemModels.ItemView1);
                     
                     Check(composition);
                 }
@@ -294,24 +294,24 @@ namespace _Root.Scripts.Controllers
                     _isRight = true;
                     _delayUItemView2 = CoroutineController.StartRoutine(DelayItemView2());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView1, pointModel.ItemModels.ItemView2);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView1, _pointModel.ItemModels.ItemView2);
                     
                     Check(composition);
                 }
                 _fieldEnum = FieldEnum.Horizontal;
             }
 
-            if (pointModel.PointView.FieldEnum == FieldEnum.Hard && pointModel.IsHard)
+            if (_pointModel.PointView.FieldEnum == FieldEnum.Hard && _pointModel.IsHard)
             {
                 int count = 0;
 
-                if (pointModel.ItemModels.ItemView1.gameObject.activeSelf == false)
+                if (_pointModel.ItemModels.ItemView1.gameObject.activeSelf == false)
                     count++;
-                if (pointModel.ItemModels.ItemView2.gameObject.activeSelf == false)
+                if (_pointModel.ItemModels.ItemView2.gameObject.activeSelf == false)
                     count++;
-                if (pointModel.ItemModels.ItemView3.gameObject.activeSelf == false)
+                if (_pointModel.ItemModels.ItemView3.gameObject.activeSelf == false)
                     count++;
-                if (pointModel.ItemModels.ItemView4.gameObject.activeSelf == false)
+                if (_pointModel.ItemModels.ItemView4.gameObject.activeSelf == false)
                     count++;
 
                 if (count >= 3)
@@ -321,12 +321,12 @@ namespace _Root.Scripts.Controllers
 
             }
             
-            if (pointModel.PointView.FieldEnum == FieldEnum.Hard)
+            if (_pointModel.PointView.FieldEnum == FieldEnum.Hard)
             {
-                if (!pointModel.IsHard)
+                if (!_pointModel.IsHard)
                 {
                     SwipeHardFirstMove(direction);
-                    pointModel.IsHard = true;
+                    _pointModel.IsHard = true;
                 }
                 else
                 {
@@ -343,24 +343,24 @@ namespace _Root.Scripts.Controllers
         {
             if (direction == Vector2.left)
             {
-                if (pointModel.MoveOption == MoveOption.HorizontalUp)
+                if (_pointModel.MoveOption == MoveOption.HorizontalUp)
                 {
                     _isLeft = true;
                     _isHard = true;
                     
                     _delayUItemView1 = CoroutineController.StartRoutine(DelayItemView1());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView2, pointModel.ItemModels.ItemView1);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView2, _pointModel.ItemModels.ItemView1);
                     
                     Check(composition);
                 }
 
-                if (pointModel.MoveOption == MoveOption.HorizontalDown)
+                if (_pointModel.MoveOption == MoveOption.HorizontalDown)
                 {
                     _isLeft = true;
                     _isHard = true;
                     _delayUItemView3 = CoroutineController.StartRoutine(DelayItemView3());
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView4, pointModel.ItemModels.ItemView3);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView4, _pointModel.ItemModels.ItemView3);
                     
                     Check(composition);
                 }
@@ -368,23 +368,23 @@ namespace _Root.Scripts.Controllers
 
             if (direction == Vector2.right)
             {
-                if (pointModel.MoveOption == MoveOption.HorizontalUp)
+                if (_pointModel.MoveOption == MoveOption.HorizontalUp)
                 {
                     _isRight = true;
                     _isHard = true;
                     
                     _delayUItemView2 = CoroutineController.StartRoutine(DelayItemView2());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView1, pointModel.ItemModels.ItemView2);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView1, _pointModel.ItemModels.ItemView2);
                     
                     Check(composition);
                 }
-                if (pointModel.MoveOption == MoveOption.HorizontalDown)
+                if (_pointModel.MoveOption == MoveOption.HorizontalDown)
                 {
                     _isRight = true;
                     _isHard = true;
                     _delayUItemView4 = CoroutineController.StartRoutine(DelayItemView4());
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView3, pointModel.ItemModels.ItemView4);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView3, _pointModel.ItemModels.ItemView4);
                     
                     Check(composition);
                 }
@@ -392,25 +392,25 @@ namespace _Root.Scripts.Controllers
 
             if (direction == Vector2.up)
             {
-                if (pointModel.MoveOption == MoveOption.VerticalLeft)
+                if (_pointModel.MoveOption == MoveOption.VerticalLeft)
                 {
                     _isUp = true;
                     _isHard = true;
                     
                     _delayUItemView3 = CoroutineController.StartRoutine(DelayItemView3());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView1, pointModel.ItemModels.ItemView3);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView1, _pointModel.ItemModels.ItemView3);
                     
                     Check(composition);
                 }
-                if (pointModel.MoveOption == MoveOption.VerticalRight)
+                if (_pointModel.MoveOption == MoveOption.VerticalRight)
                 {
                     _isUp = true;
                     _isHard = true;
                     
                     _delayUItemView4 = CoroutineController.StartRoutine(DelayItemView4());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView2, pointModel.ItemModels.ItemView4);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView2, _pointModel.ItemModels.ItemView4);
                     
                     Check(composition);
                 }
@@ -418,25 +418,25 @@ namespace _Root.Scripts.Controllers
             
             if (direction == Vector2.down)
             {
-                if (pointModel.MoveOption == MoveOption.VerticalLeft)
+                if (_pointModel.MoveOption == MoveOption.VerticalLeft)
                 {
                     _isDown = true;
                     _isHard = true;
                     
                     _delayUItemView3 = CoroutineController.StartRoutine(DelayItemView3());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView1, pointModel.ItemModels.ItemView3);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView1, _pointModel.ItemModels.ItemView3);
                     
                     Check(composition);
                 }
-                if (pointModel.MoveOption == MoveOption.VerticalRight)
+                if (_pointModel.MoveOption == MoveOption.VerticalRight)
                 {
                     _isDown = true;
                     _isHard = true;
                     
                     _delayUItemView4 = CoroutineController.StartRoutine(DelayItemView4());
                     
-                    var composition = AssignmentResult(pointModel.ItemModels.ItemView2, pointModel.ItemModels.ItemView4);
+                    var composition = AssignmentResult(_pointModel.ItemModels.ItemView2, _pointModel.ItemModels.ItemView4);
                     
                     Check(composition);
                 }
@@ -449,12 +449,13 @@ namespace _Root.Scripts.Controllers
             {
                 _isLeft = true;
                 _isHard = true;
+                
                 _delayUItemView2 = CoroutineController.StartRoutine(DelayItemView2());
                 _delayUItemView4 = CoroutineController.StartRoutine(DelayItemView4());
 
-                AssignmentResult(pointModel.ItemModels.ItemView1, pointModel.ItemModels.ItemView2);
-                AssignmentResult(pointModel.ItemModels.ItemView3, pointModel.ItemModels.ItemView4);
-                _cek = CoroutineController.StartRoutine(Cek(MoveOption.VerticalLeft));
+                AssignmentResult(_pointModel.ItemModels.ItemView1, _pointModel.ItemModels.ItemView2);
+                AssignmentResult(_pointModel.ItemModels.ItemView3, _pointModel.ItemModels.ItemView4);
+                _cek = CoroutineController.StartRoutine(Cek(_pointModel, MoveOption.VerticalLeft));
             }
 
             if (direction == Vector2.right)
@@ -465,9 +466,9 @@ namespace _Root.Scripts.Controllers
                 _delayUItemView1 = CoroutineController.StartRoutine(DelayItemView1());
                 _delayUItemView3 = CoroutineController.StartRoutine(DelayItemView3());
 
-                AssignmentResult(pointModel.ItemModels.ItemView2, pointModel.ItemModels.ItemView1);
-                AssignmentResult(pointModel.ItemModels.ItemView4, pointModel.ItemModels.ItemView3);
-                _cek = CoroutineController.StartRoutine(Cek(MoveOption.VerticalRight));
+                AssignmentResult(_pointModel.ItemModels.ItemView2, _pointModel.ItemModels.ItemView1);
+                AssignmentResult(_pointModel.ItemModels.ItemView4, _pointModel.ItemModels.ItemView3);
+                _cek = CoroutineController.StartRoutine(Cek(_pointModel, MoveOption.VerticalRight));
             }
 
             if (direction == Vector2.up)
@@ -478,9 +479,9 @@ namespace _Root.Scripts.Controllers
                 _delayUItemView3 = CoroutineController.StartRoutine(DelayItemView3());
                 _delayUItemView4 = CoroutineController.StartRoutine(DelayItemView4());
 
-                AssignmentResult(pointModel.ItemModels.ItemView1, pointModel.ItemModels.ItemView3);
-                AssignmentResult(pointModel.ItemModels.ItemView2, pointModel.ItemModels.ItemView4);
-                _cek = CoroutineController.StartRoutine(Cek(MoveOption.HorizontalUp));
+                AssignmentResult(_pointModel.ItemModels.ItemView1, _pointModel.ItemModels.ItemView3);
+                AssignmentResult(_pointModel.ItemModels.ItemView2, _pointModel.ItemModels.ItemView4);
+                _cek = CoroutineController.StartRoutine(Cek(_pointModel, MoveOption.HorizontalUp));
             }
 
             if (direction == Vector2.down)
@@ -491,9 +492,9 @@ namespace _Root.Scripts.Controllers
                 _delayUItemView1 = CoroutineController.StartRoutine(DelayItemView1());
                 _delayUItemView2 = CoroutineController.StartRoutine(DelayItemView2());
 
-                AssignmentResult(pointModel.ItemModels.ItemView3, pointModel.ItemModels.ItemView1);
-                AssignmentResult(pointModel.ItemModels.ItemView4, pointModel.ItemModels.ItemView2);
-                _cek = CoroutineController.StartRoutine(Cek(MoveOption.HorizontalDown));
+                AssignmentResult(_pointModel.ItemModels.ItemView3, _pointModel.ItemModels.ItemView1);
+                AssignmentResult(_pointModel.ItemModels.ItemView4, _pointModel.ItemModels.ItemView2);
+                _cek = CoroutineController.StartRoutine(Cek(_pointModel, MoveOption.HorizontalDown));
             }
 
         }
@@ -548,36 +549,37 @@ namespace _Root.Scripts.Controllers
         {
             yield return new WaitForSeconds(0.2f);
 
-            pointModel.ItemModels.ItemView1.gameObject.SetActive(false);
+            _pointModel.ItemModels.ItemView1.gameObject.SetActive(false);
             CoroutineController.StopRoutine(_delayUItemView1);
         }
 
         private IEnumerator DelayItemView2()
         {
             yield return new WaitForSeconds(0.2f);
-            pointModel.ItemModels.ItemView2.gameObject.SetActive(false);
+            _pointModel.ItemModels.ItemView2.gameObject.SetActive(false);
             CoroutineController.StopRoutine(_delayUItemView2);
         }        
         
         private IEnumerator DelayItemView3()
         {
             yield return new WaitForSeconds(0.2f);
-            pointModel.ItemModels.ItemView3.gameObject.SetActive(false);
+            _pointModel.ItemModels.ItemView3.gameObject.SetActive(false);
             CoroutineController.StopRoutine(_delayUItemView3);
         }       
         
         private IEnumerator DelayItemView4()
         {
             yield return new WaitForSeconds(0.2f);
-            pointModel.ItemModels.ItemView4.gameObject.SetActive(false);
+            _pointModel.ItemModels.ItemView4.gameObject.SetActive(false);
             CoroutineController.StopRoutine(_delayUItemView4);
         }
 
-        private IEnumerator Cek(MoveOption moveOption)
+        private IEnumerator Cek(PointModel pointModel, MoveOption moveOption)
         {
             yield return new WaitForSeconds(0.9f);
             pointModel.MoveOption = moveOption;
-            CoroutineController.StopRoutine(_cek);
+            Debug.Log(pointModel.MoveOption);
+            //CoroutineController.StopRoutine(_cek);
         }
     }
 }

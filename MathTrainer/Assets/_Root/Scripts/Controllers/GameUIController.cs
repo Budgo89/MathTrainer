@@ -30,6 +30,7 @@ namespace _Root.Scripts.Controllers
         private Label _attempts;
         private Label _answer;
         private Label _timer;
+        private VisualElement _typeGame;
 
         private float _pointCount = 100;
         private int _attemptsCount = 5;
@@ -59,8 +60,29 @@ namespace _Root.Scripts.Controllers
             
             AddElement();
             Subscribe();
+            AddTypeGame();
             GetTimerCount();
             _timerCoroutine = CoroutineController.StartRoutine(Timer());
+        }
+
+        private void AddTypeGame()
+        {
+            if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication)
+            {
+                _typeGame.AddToClassList(GameUIKey.MultiplicationIcon);
+            }
+            else if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition)
+            {
+                _typeGame.AddToClassList(GameUIKey.AdditionIcon);
+            }
+            else if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction)
+            {
+                _typeGame.AddToClassList(GameUIKey.SubtractionIcon);
+            }
+            else if (_gameSettings.TypeGameEnum == TypeGameEnum.Division)
+            {
+                _typeGame.AddToClassList(GameUIKey.DivisionIcon);
+            }
         }
 
         private void GetTimerCount()
@@ -93,6 +115,8 @@ namespace _Root.Scripts.Controllers
             
             _timer = _root.Q<Label>(GameUIKey.Timer);
             _timer.text = _timerCountBase.ToString();
+
+            _typeGame = _root.Q<VisualElement>(GameUIKey.TypeGameVisualElement);
 
         }
 
