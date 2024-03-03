@@ -3,7 +3,7 @@
     <ui:VisualElement style="width: 100%; height: 100%; justify-content: center; align-items: center; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_logo.png?fileID=21300000&amp;guid=2db169ae9cda3da44842efb0edcc4e67&amp;type=3#bg_logo&apos;); background-color: rgba(0, 0, 0, 0);">
         <ui:VisualElement style="position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center;">
             <ui:VisualElement name="logo" style="width: auto; height: 100px; justify-content: center; align-items: center; left: 59px; right: 59px; flex-direction: row; position: absolute; top: 140px;">
-                <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/_Root/Images/background/logo.png?fileID=21300000&amp;guid=2f8b2a5950d72144aa7c51840877c9ed&amp;type=3#logo&apos;); width: 100%; height: 100%; -unity-background-scale-mode: scale-to-fit; justify-content: center; align-items: center;" />
+                <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/_Root/Images/background/logo.png?fileID=21300000&amp;guid=2f8b2a5950d72144aa7c51840877c9ed&amp;type=3#logo&apos;); width: 100%; height: 150%; -unity-background-scale-mode: scale-to-fit; justify-content: center; align-items: center;" />
             </ui:VisualElement>
             <ui:VisualElement style="width: 100%; height: 30%; -unity-font-style: bold;">
                 <ui:VisualElement name="Settings" style="position: absolute; left: 140px; right: 140px; width: auto; height: 120px; background-color: rgb(119, 245, 245); top: 210px; bottom: auto;">

@@ -6,9 +6,6 @@
     </ui:VisualElement>
     <ui:VisualElement name="background" style="position: absolute; width: 100%; height: 100%; align-items: center; justify-content: space-between; flex-direction: column; display: flex;">
         <ui:VisualElement name="top" style="width: 100%; height: 465px; display: flex;">
-            <ui:VisualElement style="position: absolute; left: 0; width: auto; height: auto; top: 0; right: 0; bottom: 0; background-image: url(&apos;project://database/Assets/_Root/Images/background/header.png?fileID=2800000&amp;guid=8cc9762ecfeefe746b88fedfbf533c4f&amp;type=3#header&apos;); background-color: rgba(255, 254, 254, 0); display: none;" />
-            <ui:VisualElement style="position: absolute; bottom: 0; right: 0; top: 0; left: 0; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_grid_top.png?fileID=2800000&amp;guid=b602f4a12b17d4b47904888286a70632&amp;type=3#bg_grid_top&apos;); display: none;" />
-            <ui:VisualElement style="width: 100%; height: 40%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_gradient_shading_top.png?fileID=2800000&amp;guid=1ffd5e8f55c66d1428dfd52a01f012f2&amp;type=3#bg_gradient_shading_top&apos;); display: none; -unity-background-image-tint-color: rgba(255, 255, 255, 0.85);" />
             <ui:VisualElement name="Hat" style="width: 100%; height: 30%; justify-content: center; align-items: center; display: flex; position: absolute; top: 140px;">
                 <ui:VisualElement style="width: auto; height: 120px; flex-direction: row; align-items: auto; left: 60px; right: 60px; overflow: hidden; flex-grow: 0; position: absolute;">
                     <ui:VisualElement style="width: 120px; height: 120px; left: auto; background-color: rgb(119, 245, 245); align-items: center; justify-content: center;">
