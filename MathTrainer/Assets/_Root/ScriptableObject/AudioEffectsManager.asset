@@ -15,3 +15,4 @@ MonoBehaviour:
   _fonClip: {fileID: 8300000, guid: 1cb4df300149e3946be2126d4da30139, type: 3}
   _swaipClip: {fileID: 8300000, guid: dd689109a423f4a46b4442ea03b4b5fa, type: 3}
   _buttonClick: {fileID: 8300000, guid: 3dd31018de751a24fb7f03709b5724d3, type: 3}
+  _failure: {fileID: 8300000, guid: dc92cb07feea345449dae9a62d86d197, type: 3}

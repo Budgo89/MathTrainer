@@ -8,9 +8,11 @@ namespace _Root.Scripts.ScriptableObjects
         [SerializeField] private AudioClip _fonClip;
         [SerializeField] private AudioClip _swaipClip;
         [SerializeField] private AudioClip _buttonClick;
+        [SerializeField] private AudioClip _failure;
 
         public AudioClip FonClip => _fonClip;
         public AudioClip SwaipClip => _swaipClip;
         public AudioClip ButtonClick => _buttonClick;
+        public AudioClip Failure => _failure;
     }
 }

@@ -145,52 +145,73 @@ namespace _Root.Scripts.Controllers
 
         private void ClickStartButton(ClickEvent evt)
         {
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
-                _profilePlayer.CurrentState.Value = GameState.MultiplicationEasyGame;
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
-                _profilePlayer.CurrentState.Value = GameState.MultiplicationNormalGame;
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
-                _profilePlayer.CurrentState.Value = GameState.MultiplicationHardGame;
-
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
-                _profilePlayer.CurrentState.Value = GameState.AdditionEasyGame;
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
-                _profilePlayer.CurrentState.Value = GameState.AdditionNormalGame;
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
-                _profilePlayer.CurrentState.Value = GameState.AdditionHardGame;
-
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Division &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
-                _profilePlayer.CurrentState.Value = GameState.DivisionEasyGame;
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Division &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
-                _profilePlayer.CurrentState.Value = GameState.DivisionNormalGame;
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Division &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
-                _profilePlayer.CurrentState.Value = GameState.DivisionHardGame;
-
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
-                _profilePlayer.CurrentState.Value = GameState.SubtractionEasyGame;
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
-                _profilePlayer.CurrentState.Value = GameState.SubtractionNormalGame;
-            if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction &&
-                _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
-                _profilePlayer.CurrentState.Value = GameState.SubtractionHardGame;
+            _startButton.RegisterCallback<TransitionEndEvent>(ClickStartButton);
         }
 
-        private void ClickBackButton(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.MainMenu;
+        private void ClickStartButton(TransitionEndEvent evt)
+        {
+            if (!_startButton.ClassListContains(GameSettingsMenuUiKey.StartButtonStyle) && evt.target == _startButton)
+            {
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
+                    _profilePlayer.CurrentState.Value = GameState.MultiplicationEasyGame;
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                    _profilePlayer.CurrentState.Value = GameState.MultiplicationNormalGame;
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
+                    _profilePlayer.CurrentState.Value = GameState.MultiplicationHardGame;
+
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
+                    _profilePlayer.CurrentState.Value = GameState.AdditionEasyGame;
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                    _profilePlayer.CurrentState.Value = GameState.AdditionNormalGame;
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Addition &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
+                    _profilePlayer.CurrentState.Value = GameState.AdditionHardGame;
+
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Division &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
+                    _profilePlayer.CurrentState.Value = GameState.DivisionEasyGame;
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Division &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                    _profilePlayer.CurrentState.Value = GameState.DivisionNormalGame;
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Division &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
+                    _profilePlayer.CurrentState.Value = GameState.DivisionHardGame;
+
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
+                    _profilePlayer.CurrentState.Value = GameState.SubtractionEasyGame;
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Normal)
+                    _profilePlayer.CurrentState.Value = GameState.SubtractionNormalGame;
+                if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction &&
+                    _gameSettings.ComplexityEnum == ComplexityEnum.Hard)
+                    _profilePlayer.CurrentState.Value = GameState.SubtractionHardGame;
+            }
+
+            _startButton.UnregisterCallback<TransitionEndEvent>(ClickStartButton);
+        }
+
+        private void ClickBackButton(ClickEvent evt)
+        {
+            _backButton.RegisterCallback<TransitionEndEvent>(ClickBackButton);
+        }
+
+        private void ClickBackButton(TransitionEndEvent evt)
+        {
+            if (!_backButton.ClassListContains(GameSettingsMenuUiKey.BackButtonStyle) && evt.target == _backButton)
+            {
+                _profilePlayer.CurrentState.Value = GameState.MainMenu;
+            }
+            _backButton.UnregisterCallback<TransitionEndEvent>(ClickBackButton);
+        }
 
         private void AddElement()
         {
-
             _backButton = _root.Q<Button>(GameSettingsMenuUiKey.BackButton);
             _easyButton = _root.Q<Button>(GameSettingsMenuUiKey.EasyButton);
             _normalButton = _root.Q<Button>(GameSettingsMenuUiKey.NormalButton);

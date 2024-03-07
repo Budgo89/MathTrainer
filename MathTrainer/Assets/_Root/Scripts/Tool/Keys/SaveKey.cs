@@ -6,8 +6,9 @@
         public const string RecordDivisionKey = "RecordDivisionKeyMathMerge";
         public const string RecordSubtractionKey = "RecordSubtractionKeyMathMerge";
         public const string RecordAdditionKey = "RecordAdditionKeyMathMerge";
-        public const string AudioValue = "AudioValueMathMerge";
+        public const string AudioValueKey = "AudioValueMathMerge";
         public const string IsAudio = "IsAudioMathMerge";
-        public const string Test = "MathMerge";
+        public const string TestKey = "MathMerge";
+        public const string LocalizationKey = "LocalizationKMathMerge";
     }
 }

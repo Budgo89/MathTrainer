@@ -7,5 +7,6 @@
         public const string SubtractionRecordsText = "SubtractionRecords";
         public const string MultiplicationRecordsText = "MultiplicationRecords";
         public const string DivisionRecordsText = "DivisionRecords";
+        public const string BackButtonStyle = "BackButton:focus";
     }
 }

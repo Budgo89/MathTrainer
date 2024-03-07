@@ -17,6 +17,7 @@
         public const string StyleBackgroundButtonMiniSubtractionFocus = "BackgroundButtonMiniMinusFocus";
         public const string StyleBackgroundButtonMiniMultiplyFocus = "BackgroundButtonMiniMultiplyFocus";
         public const string StyleBackgroundButtonMiniDivisionFocus = "BackgroundButtonMiniDivisionFocus";
-
+        public const string StartButtonStyle = "StartButton:focus";
+        public const string BackButtonStyle = "BackButton:focus";
     }
 }

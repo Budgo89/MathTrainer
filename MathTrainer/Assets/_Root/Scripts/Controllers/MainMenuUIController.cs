@@ -18,6 +18,7 @@ namespace _Root.Scripts.Controllers
         private Button _buttonGame;
         private Button _buttonRecords;
         private Button _buttonSettings;
+        
 
         public MainMenuUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
             AudioModel audioModel)
@@ -33,9 +34,7 @@ namespace _Root.Scripts.Controllers
             
             AddElement();
             Subscribe();
-            
         }
-
 
         private void Subscribe()
         {
@@ -47,23 +46,59 @@ namespace _Root.Scripts.Controllers
             _buttonSettings.RegisterCallback<ClickEvent>(AudioPlay);
         }
 
+        private void ClickButtonGame(TransitionEndEvent evt)
+        {
+            if (!_buttonGame.ClassListContains(MainMenuUIKey.StartButtonStyle) && evt.target == _buttonGame)
+            {
+                _profilePlayer.CurrentState.Value = GameState.GameSettingsMenuUiController;
+            }
+            _buttonGame.UnregisterCallback<TransitionEndEvent>(ClickButtonGame);
+        }
+
         private void AudioPlay(ClickEvent evt)
         {
             _audioModel.AudioEffects.clip = _audioModel.AudioEffectsManager.ButtonClick;
             _audioModel.AudioEffects.Play();
         }
 
-        private void ClickButtonSettings(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.Settings;
+        private void ClickButtonSettings(ClickEvent evt)
+        {
+            _buttonSettings.RegisterCallback<TransitionEndEvent>(ClickButtonSettings);
+        }
 
-        private void ClickButtonRecords(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.Records;
+        private void ClickButtonSettings(TransitionEndEvent evt)
+        {
+            if (!_buttonSettings.ClassListContains(MainMenuUIKey.SettingsButtonStyle) && evt.target == _buttonSettings)
+            {
+                _profilePlayer.CurrentState.Value = GameState.Settings;
+            }
+            _buttonSettings.UnregisterCallback<TransitionEndEvent>(ClickButtonSettings);
+        }
 
-        private void ClickButtonGame(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.GameSettingsMenuUiController;
+        private void ClickButtonRecords(ClickEvent evt)
+        {
+            _buttonRecords.RegisterCallback<TransitionEndEvent>(ClickButtonRecords);
+        }
+
+        private void ClickButtonRecords(TransitionEndEvent evt)
+        {
+            if (!_buttonRecords.ClassListContains(MainMenuUIKey.RecordButtonStyle) && evt.target == _buttonRecords)
+            {
+                _profilePlayer.CurrentState.Value = GameState.Records;
+            }
+            _buttonRecords.UnregisterCallback<TransitionEndEvent>(ClickButtonRecords);
+        }
+
+        private void ClickButtonGame(ClickEvent evt)
+        {
+            _buttonGame.RegisterCallback<TransitionEndEvent>(ClickButtonGame);
+        }
 
         private void AddElement()
         {
             _buttonGame = _root.Q<Button>(MainMenuUIKey.StartButtonKey);
             _buttonRecords = _root.Q<Button>(MainMenuUIKey.RecordButtonKey);
-            _buttonSettings = _root.Q<Button>(MainMenuUIKey.SettingsButton);
+            _buttonSettings = _root.Q<Button>(MainMenuUIKey.SettingsButtonKey);
         }
     }
 }

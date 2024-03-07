@@ -122,7 +122,7 @@ namespace _Root.Scripts.Controllers
 
         private void Subscribe()
         {
-            _backButton.RegisterCallback<ClickEvent>(ClickNextButton);
+            _backButton.RegisterCallback<ClickEvent>(ClickBackButton);
             _backButton.RegisterCallback<ClickEvent>(AudioPlay);
             _gameController.VictoryAction += VictoryAction;
             _gameController.DefeatAction += DefeatAction;
@@ -132,6 +132,12 @@ namespace _Root.Scripts.Controllers
         private void AudioPlay(ClickEvent evt)
         {
             _audioModel.AudioEffects.clip = _audioModel.AudioEffectsManager.ButtonClick;
+            _audioModel.AudioEffects.Play();
+        }
+        
+        private void AudioPlay()
+        {
+            _audioModel.AudioEffects.clip = _audioModel.AudioEffectsManager.Failure;
             _audioModel.AudioEffects.Play();
         }
 
@@ -190,6 +196,7 @@ namespace _Root.Scripts.Controllers
             
             _attemptsCount -= 1;
             _attempts.text = _attemptsCount.ToString();
+            AudioPlay();
             if (_timerCoroutine != null)
                 CoroutineController.StopRoutine(_timerCoroutine);
             if (_attemptsCount <= 0)
@@ -208,13 +215,24 @@ namespace _Root.Scripts.Controllers
             _pauseCoroutine = CoroutineController.StartRoutine(Pause());
         }
 
-
-        private void ClickNextButton(ClickEvent evt)
+        private void ClickBackButton(ClickEvent evt)
         {
             _worldGenerator.StopGenerator();
             if (_timerCoroutine != null)
                 CoroutineController.StopRoutine(_timerCoroutine);
-            _nextCoroutine = CoroutineController.StartRoutine(Next());
+            _backButton.RegisterCallback<TransitionEndEvent>(ClickBackButton);
+            
+            //_nextCoroutine = CoroutineController.StartRoutine(Next());
+        }
+        
+        private void ClickBackButton(TransitionEndEvent evt)
+        {
+            if (!_backButton.ClassListContains(GameUIKey.BackButtonStyle) && evt.target == _backButton)
+            {
+                _profilePlayers.CurrentState.Value = GameState.MainMenu;
+            }
+
+            _backButton.UnregisterCallback<TransitionEndEvent>(ClickBackButton);
         }
 
 
@@ -241,7 +259,6 @@ namespace _Root.Scripts.Controllers
             if (_timerCoroutine != null)
                 CoroutineController.StopRoutine(_timerCoroutine);
             DefeatAction(_gameController._victoryCondition);
-
         }
         
         private IEnumerator Pause()

@@ -41,7 +41,7 @@ namespace _Root.Scripts.Controllers
         {
             foreach (var pointModel in _pointModels)
             {
-                pointModel.PointView.OnDestroy();
+                pointModel.PointView.DestroyOn();
             }
         }
         
@@ -60,7 +60,7 @@ namespace _Root.Scripts.Controllers
         {
             foreach (var pointModel in _pointModels)
             {
-                pointModel.PointView.OnDestroy();
+                pointModel.PointView.DestroyOn();
             }
             
             _pauseCoroutine = CoroutineController.StartRoutine(Pause());

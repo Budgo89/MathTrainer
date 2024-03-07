@@ -16,5 +16,6 @@
         public const string SoundSlider = "SoundSlider";
         public const string UnityDragger = "unity-dragger";
         public const string Bar = "bar";
+        public const string BackButtonStyle = "BackButton:focus";
     }
 }

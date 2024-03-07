@@ -134,7 +134,17 @@ namespace _Root.Scripts.Controllers
         private void ClickMainMenuButton(ClickEvent evt)
         {
             Save();
-            _profilePlayer.CurrentState.Value = GameState.MainMenu;
+            _mainMenuButton.RegisterCallback<TransitionEndEvent>(ClickMainMenuButton);
+        }
+
+        private void ClickMainMenuButton(TransitionEndEvent evt)
+        {
+            if (!_mainMenuButton.ClassListContains(GameOverKey.StartButtonStyle) && evt.target == _mainMenuButton)
+            {
+                _profilePlayer.CurrentState.Value = GameState.MainMenu;
+            }
+
+            _mainMenuButton.UnregisterCallback<TransitionEndEvent>(ClickMainMenuButton);
         }
 
         private void AddElement()

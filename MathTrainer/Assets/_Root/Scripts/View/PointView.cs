@@ -30,10 +30,10 @@ namespace _Root.Scripts.View
             _fieldEnum = fieldEnum;
         }
 
-        public void OnDestroy()
+        public void DestroyOn(float time = 1f)
         {
             if (this.gameObject != null)
-                Destroy(this.gameObject, 1);
+                Destroy(this.gameObject, time);
         }
     }
 }

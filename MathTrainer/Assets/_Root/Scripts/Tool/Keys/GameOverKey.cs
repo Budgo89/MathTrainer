@@ -12,5 +12,7 @@
         public const string RecordsSubtractionText = "RecordsSubtractionText";
         public const string RecordsAddition = "RecordsAddition";
         public const string RecordsAdditionText = "RecordsAdditionText";
+        
+        public const string StartButtonStyle = "StartButton:focus";
     }
 }

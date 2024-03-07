@@ -194,9 +194,7 @@ namespace _Root.Scripts.Controllers
                     _pointModel.PointView.Point1.position = Vector2.Lerp(_pointModel.PointView.Point1.position,
                         _pointModel.PointView.Point2.position, time);
                 }
-
             }
-                
         }
         
         private void Restart(List<PointModel> pointModels)
@@ -578,7 +576,6 @@ namespace _Root.Scripts.Controllers
         {
             yield return new WaitForSeconds(0.9f);
             pointModel.MoveOption = moveOption;
-            Debug.Log(pointModel.MoveOption);
             //CoroutineController.StopRoutine(_cek);
         }
     }

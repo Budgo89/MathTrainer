@@ -18,5 +18,6 @@
         public const string SubtractionIcon = "SubtractionIcon"; // -
         public const string AdditionIcon = "AdditionIcon"; //+
         public const string TypeGameVisualElement = "TypeGame";
+        public const string BackButtonStyle = "BackButton:focus";
     }
 }

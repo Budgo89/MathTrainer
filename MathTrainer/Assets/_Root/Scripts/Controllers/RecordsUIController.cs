@@ -70,6 +70,18 @@ namespace _Root.Scripts.Controllers
             _divisionRecordsText = _root.Q<Label>(RecordsUiKey.DivisionRecordsText);
         }
         
-        private void ClickBackButton(ClickEvent evt) => _profilePlayer.CurrentState.Value = GameState.MainMenu;
+        private void ClickBackButton(ClickEvent evt)
+        {
+            _backButton.RegisterCallback<TransitionEndEvent>(ClickBackButton);
+        }
+        
+        private void ClickBackButton(TransitionEndEvent evt)
+        {
+            if (!_backButton.ClassListContains(RecordsUiKey.BackButtonStyle) && evt.target == _backButton)
+            {
+                _profilePlayer.CurrentState.Value = GameState.MainMenu;
+            }
+            _backButton.UnregisterCallback<TransitionEndEvent>(ClickBackButton);
+        }
     }
 }

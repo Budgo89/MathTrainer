@@ -1,16 +1,9 @@
 .StartButton {
     width: 80%;
     height: 30%;
-    background-image: url('project://database/Assets/2D%20Casual%20UI/Sprite/GUI.png?fileID=21300034&guid=1eaee135ce037439d925cee5e41ce026&type=3#GUI_17');
-    -unity-background-scale-mode: scale-and-crop;
+    -unity-background-scale-mode: stretch-to-fill;
     transition-duration: 1s;
-}
-
-.StartButton:hover {
-    background-image: url('project://database/Assets/2D%20Casual%20UI/Sprite/GUI.png?fileID=21300036&guid=1eaee135ce037439d925cee5e41ce026&type=3#GUI_18');
-    width: 80%;
-    height: 35%;
-    transition-duration: 1s;
+    background-image: url('project://database/Assets/_Root/Images/btn_l_selected.png?fileID=2800000&guid=9753bbdb6d2cf34488985e209b82ea33&type=3#btn_l_selected');
 }
 
 .TupeGameButton {
@@ -245,7 +238,7 @@
     align-items: auto;
     justify-content: flex-start;
     overflow: hidden;
-    color: rgba(241, 217, 217, 255);
+    color: rgb(241, 217, 217);
 }
 
 #unity-progress-bar {
@@ -264,4 +257,52 @@
     justify-content: flex-start;
     align-items: stretch;
     flex-basis: auto;
+}
+
+.StartButton:focus {
+    background-image: url('project://database/Assets/_Root/Images/btn_l_pressed.png?fileID=2800000&guid=a857650ed7415fb46822fb649c3020f2&type=3#btn_l_pressed');
+    transition-duration: 0.5s;
+}
+
+.StartButtonTest {
+    background-image: url('project://database/Assets/_Root/Images/btn_l_pressed.png?fileID=2800000&guid=a857650ed7415fb46822fb649c3020f2&type=3#btn_l_pressed');
+    transition-duration: 0.3s;
+}
+
+.BackButton:focus {
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    transition-duration: 0.5s;
+}
+
+.BackButton {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+.ButtonAnim {
+    background-color: rgba(68, 251, 185, 255);
+    left: 15px;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    position: absolute;
+}
+
+.ButtonAnim:focus {
+    background-color: rgba(68, 251, 185, 0.75);
+    transition-duration: 0.5s;
+    left: 20px;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    position: absolute;
 }

@@ -9,15 +9,15 @@ using UnityEngine.UIElements;
 
 namespace _Root.Scripts.Controllers
 {
-    public class SettingsUIController: BaseController
+    public class SettingsUIController : BaseController
     {
         private readonly ProfilePlayers _profilePlayer;
         private readonly UIDocument _uiDocument;
         private readonly UiManager _uiManager;
         private readonly AudioModel _audioModel;
-        
+
         private VisualElement _root;
-        
+
         private Button _backButton;
         private Button _buttonOnSound;
         private Button _buttonOffSound;
@@ -29,24 +29,25 @@ namespace _Root.Scripts.Controllers
         private Label _progressText;
 
         private bool _isAudio;
-        
-        
 
-        public SettingsUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager, AudioModel audioModel)
+
+
+        public SettingsUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
+            AudioModel audioModel)
         {
             _profilePlayer = profilePlayer;
             _uiDocument = uiDocument;
             _uiManager = uiManager;
             _audioModel = audioModel;
-            
+
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.SettingsUI;
             _root = _uiDocument.rootVisualElement;
-            
+
             AddElement();
             Subscribe();
         }
-        
+
         private void AddElement()
         {
             _backButton = _root.Q<Button>(SettingsUIKey.BackButton);
@@ -61,7 +62,7 @@ namespace _Root.Scripts.Controllers
         {
             _buttonOnSound = _root.Q<Button>(SettingsUIKey.SoundOnButton);
             _buttonOffSound = _root.Q<Button>(SettingsUIKey.SoundOffButton);
-            
+
             if (PlayerPrefs.HasKey(SaveKey.IsAudio))
             {
                 int isAudio = PlayerPrefs.GetInt(SaveKey.IsAudio);
@@ -69,9 +70,9 @@ namespace _Root.Scripts.Controllers
                 _isAudio = isAudio != 0;
                 if (!_isAudio)
                 {
-                    float value = -100f; 
+                    float value = -100f;
                     _audioModel.AudioMixer.SetFloat("Volume", value);
-                    
+
                     RemoveStyle();
                     _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonDeActive);
                     _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffActive);
@@ -89,7 +90,7 @@ namespace _Root.Scripts.Controllers
                 _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonActive);
                 _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffDeActive);
             }
-            
+
         }
 
         private void Subscribe()
@@ -98,12 +99,12 @@ namespace _Root.Scripts.Controllers
             _buttonOnSound.RegisterCallback<ClickEvent>(ClickButtonOnSound);
             _buttonOffSound.RegisterCallback<ClickEvent>(ClickButtonOffSound);
             _slider.RegisterCallback<ChangeEvent<float>>(ClickSlider);
-            
+
             _backButton.RegisterCallback<ClickEvent>(AudioPlay);
             _buttonOnSound.RegisterCallback<ClickEvent>(AudioPlay);
             _buttonOffSound.RegisterCallback<ClickEvent>(AudioPlay);
         }
-        
+
         private void AudioPlay(ClickEvent evt)
         {
             _audioModel.AudioEffects.clip = _audioModel.AudioEffectsManager.ButtonClick;
@@ -115,18 +116,18 @@ namespace _Root.Scripts.Controllers
             if (_isAudio)
             {
                 float volume = _slider.value / 100;
-                
+
                 volume = volume == 0 ? 0.00001f : volume;
                 float value = (float)(Math.Log10(volume) * 20);
                 _audioModel.AudioMixer.SetFloat("Volume", value);
-                
+
                 IndicateValueOnSound();
             }
             else
             {
                 IndicateValueOffSound();
             }
-            
+
         }
 
         private void ClickButtonOffSound(ClickEvent evt)
@@ -179,31 +180,41 @@ namespace _Root.Scripts.Controllers
         private void AddSlider()
         {
             _slider = _root.Q<Slider>(SettingsUIKey.SoundSlider);
-            
+
             _dragger = _root.Q<VisualElement>(SettingsUIKey.UnityDragger);
             _bar = new VisualElement();
             _dragger.Add(_bar);
             _bar.AddToClassList(SettingsUIKey.Bar);
             _bar.style.alignSelf = new StyleEnum<Align>(Align.FlexEnd);
-            
+
             float value = 100;
-            if (PlayerPrefs.HasKey(SaveKey.AudioValue))
+            if (PlayerPrefs.HasKey(SaveKey.AudioValueKey))
             {
-                value = PlayerPrefs.GetFloat(SaveKey.AudioValue);
+                value = PlayerPrefs.GetFloat(SaveKey.AudioValueKey);
             }
+
             _slider.value = value;
             IndicateValueOnSound();
 
         }
 
-            private void ClickBackButton(ClickEvent evt)
+        private void ClickBackButton(ClickEvent evt)
+        {
+            PlayerPrefs.SetFloat(SaveKey.AudioValueKey, _slider.value);
+            int isAudio = _isAudio == true ? 1 : 0;
+
+            PlayerPrefs.SetInt(SaveKey.IsAudio, isAudio);
+            _backButton.RegisterCallback<TransitionEndEvent>(ClickBackButton);
+        }
+
+        private void ClickBackButton(TransitionEndEvent evt)
+        {
+            if (!_backButton.ClassListContains(SettingsUIKey.BackButtonStyle) && evt.target == _backButton)
             {
-                PlayerPrefs.SetFloat(SaveKey.AudioValue, _slider.value);
-                int isAudio = _isAudio == true ? 1 : 0;
-                
-                PlayerPrefs.SetInt(SaveKey.IsAudio, isAudio);
-                
                 _profilePlayer.CurrentState.Value = GameState.MainMenu;
             }
+
+            _backButton.UnregisterCallback<TransitionEndEvent>(ClickBackButton);
+        }
     }
 }

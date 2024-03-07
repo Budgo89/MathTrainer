@@ -67,13 +67,12 @@ internal class EntryPoint : MonoBehaviour
                 _audioMixer.SetFloat("Volume", value);
                 return;
             }
-                
         }
         
         float volume = 0;
-        if (PlayerPrefs.HasKey(SaveKey.AudioValue))
+        if (PlayerPrefs.HasKey(SaveKey.AudioValueKey))
         {
-            volume = PlayerPrefs.GetFloat(SaveKey.AudioValue);
+            volume = PlayerPrefs.GetFloat(SaveKey.AudioValueKey);
             float value = (float)(Math.Log10(volume / 100) * 20);
             _audioMixer.SetFloat("Volume", value);
         }
