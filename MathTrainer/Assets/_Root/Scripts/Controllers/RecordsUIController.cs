@@ -1,4 +1,5 @@
-﻿using _Root.Scripts.Models;
+﻿using _Root.Scripts.Interfaces;
+using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
 using Controllers;
 using Profile;
@@ -14,6 +15,7 @@ namespace _Root.Scripts.Controllers
         private readonly UiManager _uiManager;
         private readonly Records _records;
         private readonly AudioModel _audioModel;
+        private readonly ILocalization _localizationText;
 
         private VisualElement _root;
         
@@ -22,15 +24,17 @@ namespace _Root.Scripts.Controllers
         private Label _subtractionRecordsText;
         private Label _multiplicationRecordsText;
         private Label _divisionRecordsText;
+        private Label _recordsText;
 
         public RecordsUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
-            Records records, AudioModel audioModel)
+            Records records, AudioModel audioModel, ILocalization localizationText)
         {
             _profilePlayer = profilePlayer;
             _uiDocument = uiDocument;
             _uiManager = uiManager;
             _records = records;
             _audioModel = audioModel;
+            _localizationText = localizationText;
 
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.RecordsUI;
@@ -68,6 +72,9 @@ namespace _Root.Scripts.Controllers
             _subtractionRecordsText = _root.Q<Label>(RecordsUiKey.SubtractionRecordsText);
             _multiplicationRecordsText = _root.Q<Label>(RecordsUiKey.MultiplicationRecordsText);
             _divisionRecordsText = _root.Q<Label>(RecordsUiKey.DivisionRecordsText);
+            _recordsText = _root.Q<Label>(RecordsUiKey.Records);
+            _recordsText.text = _localizationText.GetRecordsText();
+
         }
         
         private void ClickBackButton(ClickEvent evt)

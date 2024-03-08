@@ -15,8 +15,8 @@
                     </ui:VisualElement>
                     <ui:VisualElement name="MenuLaybel" style="width: auto; height: 120px; justify-content: center; align-items: flex-end; background-color: rgb(119, 245, 245); left: 160px; position: absolute; right: 0;">
                         <ui:VisualElement style="position: absolute; width: auto; height: auto; background-color: rgb(6, 19, 16); left: 5px; top: 5px; right: 5px; bottom: 5px; justify-content: center; align-items: center;">
-                            <ui:VisualElement style="background-color: rgba(68, 251, 185, 0.75); left: 20px; width: auto; height: auto; justify-content: center; align-items: center; -unity-background-image-tint-color: rgba(255, 255, 255, 0); -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; position: absolute; top: 20px; right: 20px; bottom: 20px;">
-                                <ui:Label text="SETTINGS" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 39px; -unity-font-style: bold; color: rgb(0, 0, 0); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                            <ui:VisualElement name="Setting" style="background-color: rgba(68, 251, 185, 0.75); left: 20px; width: auto; height: auto; justify-content: center; align-items: center; -unity-background-image-tint-color: rgba(255, 255, 255, 0); -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; position: absolute; top: 20px; right: 20px; bottom: 20px;">
+                                <ui:Label text="SETTINGS" display-tooltip-when-elided="true" name="SettingsText" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 39px; -unity-font-style: bold; color: rgb(0, 0, 0); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>
@@ -27,16 +27,16 @@
             <ui:VisualElement name="background" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_dots.png?fileID=2800000&amp;guid=643cc3d5edf49a2449488cbebe5196c4&amp;type=3#bg_dots&apos;); position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: none;" />
             <ui:VisualElement name="Settings" style="width: 100%; height: 75%; flex-direction: column; justify-content: flex-end;">
                 <ui:VisualElement style="position: absolute; top: 0; right: 140px; left: 140px; bottom: 0; justify-content: flex-end;">
-                    <ui:VisualElement name="Addition" style="width: 100%; height: 120px;">
+                    <ui:VisualElement name="Volume" style="width: 100%; height: 120px;">
                         <ui:VisualElement name="Frame" class="Frame">
                             <ui:VisualElement name="Background" class="Background" style="flex-direction: row; justify-content: space-between; align-items: center;">
                                 <ui:VisualElement name="VOLUME" class="Record" style="flex-direction: row; align-items: center;">
-                                    <ui:Label text="VOLUME" display-tooltip-when-elided="true" name="VOLUME" class="RecordText" style="-unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                    <ui:Label text="VOLUME" display-tooltip-when-elided="true" name="Volume" class="RecordText" style="-unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement style="width: 100%; height: 60px;" />
+                    <ui:VisualElement style="width: 100%; height: 40px;" />
                     <ui:VisualElement name="Sound" style="width: 100%; height: 120px; flex-direction: row;">
                         <ui:VisualElement name="Frame" class="Frame" style="height: auto;">
                             <ui:Button text="Button" display-tooltip-when-elided="true" name="SoundOnButton" class="Background" style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;">
@@ -56,7 +56,7 @@
                             </ui:Button>
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement style="width: 100%; height: 60px;" />
+                    <ui:VisualElement style="width: 100%; height: 40px;" />
                     <ui:VisualElement name="Multiplication" style="width: 100%; height: 120px;">
                         <ui:VisualElement name="Frame" class="Frame">
                             <ui:VisualElement name="Background" class="Background" style="flex-direction: row; justify-content: space-between; align-items: center;">
@@ -69,7 +69,36 @@
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement style="width: 100%; height: 180px;" />
+                    <ui:VisualElement style="width: 100%; height: 80px;" />
+                    <ui:VisualElement name="Language" style="width: 100%; height: 120px;">
+                        <ui:VisualElement name="Frame" class="Frame">
+                            <ui:VisualElement name="Background" class="Background" style="flex-direction: row; justify-content: space-between; align-items: center;">
+                                <ui:VisualElement name="VOLUME" class="Record" style="flex-direction: row; align-items: center;">
+                                    <ui:Label text="LANGUAGE" display-tooltip-when-elided="true" name="Language" class="RecordText" style="-unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement style="width: 100%; height: 40px;" />
+                    <ui:VisualElement name="Language" style="width: 100%; height: 120px; flex-direction: row;">
+                        <ui:VisualElement name="Frame" class="Frame" style="height: auto;">
+                            <ui:Button text="Button" display-tooltip-when-elided="true" name="LanguageEngButton" class="Background" style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                                <ui:VisualElement picking-mode="Ignore" class="Background" style="flex-direction: row;">
+                                    <ui:VisualElement picking-mode="Ignore" name="Eng" class="localizationOn" style="position: absolute; left: 15px; top: 15px; bottom: 15px; width: 80px; -unity-background-scale-mode: scale-to-fit;" />
+                                    <ui:Label text="ENG." display-tooltip-when-elided="true" picking-mode="Ignore" enable-rich-text="true" style="-unity-text-align: middle-center; font-size: 40px; color: rgb(119, 245, 245); left: 150px; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                </ui:VisualElement>
+                            </ui:Button>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Frame" style="width: 194px; height: auto;" />
+                        <ui:VisualElement name="Frame" class="Frame" style="height: auto;">
+                            <ui:Button text="Button" display-tooltip-when-elided="true" name="LanguageRusButton" class="Background" style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                                <ui:VisualElement picking-mode="Ignore" class="Background" style="flex-direction: row;">
+                                    <ui:VisualElement picking-mode="Ignore" name="Rus" class="localizationOff" style="position: absolute; left: 15px; top: 15px; bottom: 15px; width: 80px; -unity-background-scale-mode: scale-to-fit;" />
+                                    <ui:Label text="РУС." display-tooltip-when-elided="true" picking-mode="Ignore" style="-unity-text-align: middle-center; font-size: 40px; color: rgb(119, 245, 245); left: 150px; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial; position: relative;" />
+                                </ui:VisualElement>
+                            </ui:Button>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement style="width: 100%; height: 10px;" />

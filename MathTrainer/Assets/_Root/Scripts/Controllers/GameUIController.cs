@@ -23,6 +23,7 @@ namespace _Root.Scripts.Controllers
         private readonly UiManager _uiManager;
         private readonly GameSettings _gameSettings;
         private readonly AudioModel _audioModel;
+        private readonly ILocalization _localizationText;
 
         private VisualElement _root;
         private Button _backButton;
@@ -31,6 +32,8 @@ namespace _Root.Scripts.Controllers
         private Label _answer;
         private Label _timer;
         private VisualElement _typeGame;
+        private Label _pointsText;
+        private Label _attemptsText;
 
         private float _pointCount = 100;
         private int _attemptsCount = 5;
@@ -44,7 +47,7 @@ namespace _Root.Scripts.Controllers
 
         public GameUIController(ProfilePlayers profilePlayers, IWorldGenerator worldGenerator,
             GameController gameController, UIDocument uiDocument, UiManager uiManager, GameSettings gameSettings,
-            AudioModel audioModel)
+            AudioModel audioModel, ILocalization localizationText)
         {
             _profilePlayers = profilePlayers;
             _worldGenerator = worldGenerator;
@@ -53,6 +56,7 @@ namespace _Root.Scripts.Controllers
             _uiManager = uiManager;
             _gameSettings = gameSettings;
             _audioModel = audioModel;
+            _localizationText = localizationText;
 
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.GameUi;
@@ -117,6 +121,12 @@ namespace _Root.Scripts.Controllers
             _timer.text = _timerCountBase.ToString();
 
             _typeGame = _root.Q<VisualElement>(GameUIKey.TypeGameVisualElement);
+
+            _pointsText = _root.Q<Label>(GameUIKey.PointsText);
+            _pointsText.text = _localizationText.GetPointsText();
+
+            _attemptsText = _root.Q<Label>(GameUIKey.AttemptsText);
+            _attemptsText.text = _localizationText.GetAttemptsText();
 
         }
 

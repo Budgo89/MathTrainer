@@ -8,5 +8,6 @@
         public const string MultiplicationRecordsText = "MultiplicationRecords";
         public const string DivisionRecordsText = "DivisionRecords";
         public const string BackButtonStyle = "BackButton:focus";
+        public const string Records = "Records";
     }
 }

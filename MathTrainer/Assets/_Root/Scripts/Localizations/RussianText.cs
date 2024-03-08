@@ -1,18 +1,21 @@
-﻿namespace _Root.Scripts.Localizations
+﻿using _Root.Scripts.Interfaces;
+
+namespace _Root.Scripts.Localizations
 {
-    public class RussianText
+    public class RussianText : ILocalizationText
     {
-        public string GetPlyText = "ИГРАТЬ";
-        public string GetRecordsText = "РЕКОРДЫ";
-        public string GetRecordText = "РЕКОРД";
-        public string GetSettingsText = "НАСТРОЙКИ";
-        public string GetMenuText = "МЕНЮ";
-        public string GetPointsText = "ОЧКИ";
-        public string GetStartText = "СТАРТ";
-        public string GetAttemptsText = "ПОПЫТКИ";
-        public string GetVolumeText = "ГРОМКОСТЬ";
-        public string GetEasyTest = "ЛЕГКО";
-        public string GetNormalText = "НОРМАЛЬНО";
-        public string GetHardText = "СЛОЖНО";
+        public string PlyText => "ИГРАТЬ";
+        public string RecordsText => "РЕКОРДЫ";
+        public string RecordText => "РЕКОРД";
+        public string SettingsText => "НАСТРОЙКИ";
+        public string MenuText => "МЕНЮ";
+        public string PointsText => "ОЧКИ";
+        public string StartText => "СТАРТ";
+        public string AttemptsText => "ПОПЫТКИ";
+        public string VolumeText => "ГРОМКОСТЬ";
+        public string EasyTest => "ЛЕГКО";
+        public string NormalText => "НОРМАЛЬНО";
+        public string HardText => "СЛОЖНО";
+        public string LanguageText => "ЯЗЫК";
     }
 }

@@ -11,7 +11,7 @@
                 <ui:VisualElement name="Points" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245);">
                     <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
                         <ui:VisualElement name="full" class="full" style="background-color: rgba(68, 251, 185, 0.75);">
-                            <ui:Label text="POINTS" display-tooltip-when-elided="true" class="text" />
+                            <ui:Label text="POINTS" display-tooltip-when-elided="true" name="PointsText" class="text" />
                         </ui:VisualElement>
                         <ui:VisualElement name="PointsText" style="left: 360px; right: 20px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
                             <ui:Label text="515156151" display-tooltip-when-elided="true" name="ResultCount" style="left: 20px; font-size: 80px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
@@ -22,7 +22,7 @@
                 <ui:VisualElement name="RecordsMultiplication" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245); display: none;">
                     <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
                         <ui:VisualElement name="full" class="full" style="background-color: rgba(68, 251, 185, 0.75);">
-                            <ui:Label text="RECORD" display-tooltip-when-elided="true" class="text" />
+                            <ui:Label text="RECORD" display-tooltip-when-elided="true" name="RecordMultiplication" class="text" />
                         </ui:VisualElement>
                         <ui:VisualElement name="PointsText" style="left: 360px; right: 100px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
                             <ui:Label text="515156151" display-tooltip-when-elided="true" name="RecordsMultiplicationText" style="left: 20px; font-size: 50px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />
@@ -33,7 +33,7 @@
                 <ui:VisualElement name="RecordsDivision" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245); display: none;">
                     <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
                         <ui:VisualElement name="full" class="full" style="background-color: rgba(68, 251, 185, 0.75);">
-                            <ui:Label text="RECORD" display-tooltip-when-elided="true" class="text" />
+                            <ui:Label text="RECORD" display-tooltip-when-elided="true" name="RecordDivision" class="text" />
                         </ui:VisualElement>
                         <ui:VisualElement name="PointsText" style="left: 360px; right: 100px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
                             <ui:Label text="515156151" display-tooltip-when-elided="true" name="RecordsDivisionText" style="left: 20px; font-size: 50px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />
@@ -44,7 +44,7 @@
                 <ui:VisualElement name="RecordsSubtraction" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245); display: none;">
                     <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
                         <ui:VisualElement name="full" class="full" style="background-color: rgba(68, 251, 185, 0.75);">
-                            <ui:Label text="RECORD" display-tooltip-when-elided="true" class="text" />
+                            <ui:Label text="RECORD" display-tooltip-when-elided="true" name="RecordSubtraction" class="text" />
                         </ui:VisualElement>
                         <ui:VisualElement name="PointsText" style="left: 360px; right: 100px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
                             <ui:Label text="515156151" display-tooltip-when-elided="true" name="RecordsSubtractionText" style="left: 20px; font-size: 50px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />
@@ -55,7 +55,7 @@
                 <ui:VisualElement name="RecordsAddition" style="position: relative; left: auto; right: auto; width: auto; height: 120px; background-color: rgb(119, 245, 245); display: none;">
                     <ui:VisualElement style="position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px; background-color: rgb(9, 19, 16); align-items: center; flex-direction: row;">
                         <ui:VisualElement name="full" class="full" style="background-color: rgba(68, 251, 185, 0.75);">
-                            <ui:Label text="RECORD" display-tooltip-when-elided="true" class="text" />
+                            <ui:Label text="RECORD" display-tooltip-when-elided="true" name="RecordAddition" class="text" />
                         </ui:VisualElement>
                         <ui:VisualElement name="PointsText" style="left: 360px; right: 100px; top: 20px; bottom: 20px; position: absolute; justify-content: center; align-items: flex-start;">
                             <ui:Label text="515156151" display-tooltip-when-elided="true" name="RecordsAdditionText" style="left: 20px; font-size: 50px; -unity-text-align: middle-left; color: rgb(119, 245, 245); -unity-font-style: bold;" />

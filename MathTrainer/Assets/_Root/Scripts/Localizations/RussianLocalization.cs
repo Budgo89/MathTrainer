@@ -2,66 +2,11 @@
 
 namespace _Root.Scripts.Localizations
 {
-    public class RussianLocalization: ILocalization
+    public class RussianLocalization : Localization<ILocalizationText>
     {
-        public string GetPlyText()
+        public RussianLocalization(ILocalizationText localizationText)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetRecordsText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetRecordText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetSettingsText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetMenuText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetPointsText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetStartText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetAttemptsText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetVolumeText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetEasyTest()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetNormalText()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetHardText()
-        {
-            throw new System.NotImplementedException();
+            _localizationText = localizationText;
         }
     }
 }

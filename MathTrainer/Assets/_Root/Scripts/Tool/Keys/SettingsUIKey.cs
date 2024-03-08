@@ -17,5 +17,16 @@
         public const string UnityDragger = "unity-dragger";
         public const string Bar = "bar";
         public const string BackButtonStyle = "BackButton:focus";
+
+        public const string LocalizationOnStyle = "localizationOn";
+        public const string LocalizationOffStyle = "localizationOff";
+        public const string VolumeText = "Volume";
+        public const string LanguageText = "Language";
+        public const string SettingsText = "SettingsText";
+        
+        public const string EngIcon = "Eng";
+        public const string RusIcon = "Rus";
+        public const string LanguageEngButton = "LanguageEngButton";
+        public const string LanguageRusButton = "LanguageRusButton";
     }
 }

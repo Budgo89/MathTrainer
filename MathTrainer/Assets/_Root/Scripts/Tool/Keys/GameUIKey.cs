@@ -19,5 +19,8 @@
         public const string AdditionIcon = "AdditionIcon"; //+
         public const string TypeGameVisualElement = "TypeGame";
         public const string BackButtonStyle = "BackButton:focus";
+
+        public const string PointsText = "PointsText";
+        public const string AttemptsText = "AttemptsText";
     }
 }

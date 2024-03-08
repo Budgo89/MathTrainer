@@ -19,5 +19,6 @@
         public const string StyleBackgroundButtonMiniDivisionFocus = "BackgroundButtonMiniDivisionFocus";
         public const string StartButtonStyle = "StartButton:focus";
         public const string BackButtonStyle = "BackButton:focus";
+        public const string MenuText = "Menu";
     }
 }

@@ -1,4 +1,6 @@
-﻿using _Root.Scripts.Models;
+﻿using _Root.Scripts.Interfaces;
+using _Root.Scripts.Localizations;
+using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
 using Controllers;
 using Profile;
@@ -13,6 +15,7 @@ namespace _Root.Scripts.Controllers
         private readonly UIDocument _uiDocument;
         private readonly UiManager _uiManager;
         private readonly AudioModel _audioModel;
+        private readonly ILocalization _localizationText;
         private VisualElement _root;
 
         private Button _buttonGame;
@@ -21,12 +24,13 @@ namespace _Root.Scripts.Controllers
         
 
         public MainMenuUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
-            AudioModel audioModel)
+            AudioModel audioModel, ILocalization localizationText)
         {
             _profilePlayer = profilePlayer;
             _uiDocument = uiDocument;
             _uiManager = uiManager;
             _audioModel = audioModel;
+            _localizationText = localizationText;
 
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.MainUi;
@@ -97,8 +101,11 @@ namespace _Root.Scripts.Controllers
         private void AddElement()
         {
             _buttonGame = _root.Q<Button>(MainMenuUIKey.StartButtonKey);
+            _buttonGame.text = _localizationText.GetPlyText();
             _buttonRecords = _root.Q<Button>(MainMenuUIKey.RecordButtonKey);
+            _buttonRecords.text = _localizationText.GetRecordsText();
             _buttonSettings = _root.Q<Button>(MainMenuUIKey.SettingsButtonKey);
+            _buttonSettings.text = _localizationText.GetSettingsText();
         }
     }
 }

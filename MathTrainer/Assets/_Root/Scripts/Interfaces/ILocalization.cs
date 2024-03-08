@@ -14,5 +14,6 @@
         public string GetEasyTest();
         public string GetNormalText();
         public string GetHardText();
+        public string GetLanguageText();
     }
 }

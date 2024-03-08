@@ -1,4 +1,6 @@
 ﻿using System;
+using _Root.Scripts.Interfaces;
+using _Root.Scripts.Localizations;
 using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
 using Controllers;
@@ -15,6 +17,7 @@ namespace _Root.Scripts.Controllers
         private readonly UIDocument _uiDocument;
         private readonly UiManager _uiManager;
         private readonly AudioModel _audioModel;
+        private LocalizationModel _localizationText;
 
         private VisualElement _root;
 
@@ -27,18 +30,26 @@ namespace _Root.Scripts.Controllers
         private VisualElement _bar;
         private VisualElement _dragger;
         private Label _progressText;
-
         private bool _isAudio;
 
+        private Button _languageEngButton;
+        private Button _languageRusButton;
+        private VisualElement _engIcon;
+        private VisualElement _rusIcon;
+
+        private Label _volumeText;
+        private Label _languageText;
+        private Label _settingsText;
 
 
         public SettingsUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
-            AudioModel audioModel)
+            AudioModel audioModel, LocalizationModel localizationText)
         {
             _profilePlayer = profilePlayer;
             _uiDocument = uiDocument;
             _uiManager = uiManager;
             _audioModel = audioModel;
+            _localizationText = localizationText;
 
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.SettingsUI;
@@ -46,6 +57,15 @@ namespace _Root.Scripts.Controllers
 
             AddElement();
             Subscribe();
+
+            if (_localizationText.MarkerLocalization == 1)
+            {
+                ClickRusButton();
+            }
+            else
+            {
+                ClickEngButton();
+            }
         }
 
         private void AddElement()
@@ -54,8 +74,20 @@ namespace _Root.Scripts.Controllers
             _visualElementOnSound = _root.Q<VisualElement>(SettingsUIKey.SoundOnIcon);
             _visualElementOffSound = _root.Q<VisualElement>(SettingsUIKey.SoundOffIcon);
             _progressText = _root.Q<Label>(SettingsUIKey.ProgressText);
+            _settingsText = _root.Q<Label>(SettingsUIKey.SettingsText);
+            _volumeText = _root.Q<Label>(SettingsUIKey.VolumeText);
+            _languageText = _root.Q<Label>(SettingsUIKey.LanguageText);
             AddButtonSound();
+            AddLocalization();
             AddSlider();
+        }
+
+        private void AddLocalization()
+        {
+            _languageEngButton = _root.Q<Button>(SettingsUIKey.LanguageEngButton);
+            _languageRusButton = _root.Q<Button>(SettingsUIKey.LanguageRusButton);
+            _engIcon = _root.Q<VisualElement>(SettingsUIKey.EngIcon);
+            _rusIcon = _root.Q<VisualElement>(SettingsUIKey.RusIcon);
         }
 
         private void AddButtonSound()
@@ -90,7 +122,6 @@ namespace _Root.Scripts.Controllers
                 _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonActive);
                 _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffDeActive);
             }
-
         }
 
         private void Subscribe()
@@ -103,6 +134,58 @@ namespace _Root.Scripts.Controllers
             _backButton.RegisterCallback<ClickEvent>(AudioPlay);
             _buttonOnSound.RegisterCallback<ClickEvent>(AudioPlay);
             _buttonOffSound.RegisterCallback<ClickEvent>(AudioPlay);
+
+            _languageEngButton.RegisterCallback<ClickEvent>(ClickEngButton);
+            _languageRusButton.RegisterCallback<ClickEvent>(ClickRusButton);
+            
+            _languageEngButton.RegisterCallback<ClickEvent>(AudioPlay);
+            _languageRusButton.RegisterCallback<ClickEvent>(AudioPlay);
+        }
+
+        private void LocalizationVisual()
+        {
+            _volumeText.text = _localizationText.Localization.GetVolumeText();
+            _languageText.text = _localizationText.Localization.GetLanguageText();
+            _settingsText.text = _localizationText.Localization.GetSettingsText();
+        }
+
+        private void ClickRusButton()
+        {
+            RemoveStyleLocalization();
+            _engIcon.AddToClassList(SettingsUIKey.LocalizationOffStyle);
+            _rusIcon.AddToClassList(SettingsUIKey.LocalizationOnStyle);
+            _localizationText.Localization = new RussianLocalization(new RussianText());
+            _localizationText.MarkerLocalization = 1;
+            LocalizationVisual();
+            PlayerPrefs.SetInt(SaveKey.LocalizationKey, 1);
+        }
+        
+        private void ClickRusButton(ClickEvent evt)
+        {
+            ClickRusButton();
+        }
+
+        private void ClickEngButton()
+        {
+            RemoveStyleLocalization();
+            _engIcon.AddToClassList(SettingsUIKey.LocalizationOnStyle);
+            _rusIcon.AddToClassList(SettingsUIKey.LocalizationOffStyle);
+            _localizationText.Localization = new EnglishLocalization(new EnglishText());
+            _localizationText.MarkerLocalization = 0;
+            LocalizationVisual();
+            PlayerPrefs.SetInt(SaveKey.LocalizationKey, 0);
+        }
+        private void ClickEngButton(ClickEvent evt)
+        {
+            ClickEngButton();
+        }
+
+        private void RemoveStyleLocalization()
+        {
+            _engIcon.RemoveFromClassList(SettingsUIKey.LocalizationOnStyle);
+            _engIcon.RemoveFromClassList(SettingsUIKey.LocalizationOffStyle);
+            _rusIcon.RemoveFromClassList(SettingsUIKey.LocalizationOnStyle);
+            _rusIcon.RemoveFromClassList(SettingsUIKey.LocalizationOffStyle);
         }
 
         private void AudioPlay(ClickEvent evt)

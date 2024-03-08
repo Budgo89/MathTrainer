@@ -223,6 +223,9 @@ namespace _Root.Scripts.Controllers
         
         private void OnSwipe(Vector2 direction)
         {
+            if (IsMove())
+                return;
+
             AudioPlay();
             
             Vector2 clickPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -332,9 +335,23 @@ namespace _Root.Scripts.Controllers
                 }
 
             }
-
             _delay = CoroutineController.StartRoutine(Delay());
+        }
 
+        private bool IsMove()
+        {
+            if (_isHard)
+                return true;
+            if (_isUp)
+                return true;
+            if (_isDown)
+                return true;
+            if (_isLeft)
+                return true;
+            if (_isRight)
+                return true;
+
+            return false;
         }
 
         private void SwipeHardSecondMove(Vector2 direction)

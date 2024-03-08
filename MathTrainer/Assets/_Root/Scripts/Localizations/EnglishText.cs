@@ -1,18 +1,21 @@
-﻿namespace _Root.Scripts.Localizations
+﻿using _Root.Scripts.Interfaces;
+
+namespace _Root.Scripts.Localizations
 {
-    public class EnglishText
+    public class EnglishText : ILocalizationText
     {
-        public string GetPlyText = "PLY";
-        public string GetRecordsText = "RECORDS";
-        public string GetRecordText = "RECORD";
-        public string GetSettingsText = "SETTINGS";
-        public string GetMenuText = "MENU";
-        public string GetPointsText = "POINTS";
-        public string GetStartText = "START";
-        public string GetAttemptsText = "ATTEMPTS";
-        public string GetVolumeText = "VOLUME";
-        public string GetEasyTest = "EASY";
-        public string GetNormalText = "NORMAL";
-        public string GetHardText = "HARD";
+    public string PlyText => "PLAY";
+    public string RecordsText => "RECORDS";
+    public string RecordText => "RECORD";
+    public string SettingsText => "SETTINGS";
+    public string MenuText => "MENU";
+    public string PointsText => "POINTS";
+    public string StartText => "START";
+    public string AttemptsText => "ATTEMPTS";
+    public string VolumeText => "VOLUME";
+    public string EasyTest => "EASY";
+    public string NormalText => "NORMAL";
+    public string HardText => "HARD";
+    public string LanguageText => "LANGUAGE";
     }
 }

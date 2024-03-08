@@ -1,4 +1,5 @@
 ﻿using _Root.Scripts.Enums;
+using _Root.Scripts.Interfaces;
 using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
 using Controllers;
@@ -15,6 +16,7 @@ namespace _Root.Scripts.Controllers
         private readonly UiManager _uiManager;
         private readonly GameSettings _gameSettings;
         private readonly AudioModel _audioModel;
+        private readonly ILocalization _localizationText;
 
         private VisualElement _root;
 
@@ -27,15 +29,17 @@ namespace _Root.Scripts.Controllers
         private Button _multiplyButton;
         private Button _divisionButton;
         private Button _startButton;
+        private Label _menuText;
 
         public GameSettingsMenuUiController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
-            GameSettings gameSettings, AudioModel audioModel)
+            GameSettings gameSettings, AudioModel audioModel, ILocalization localizationText)
         {
             _profilePlayer = profilePlayer;
             _uiDocument = uiDocument;
             _uiManager = uiManager;
             _gameSettings = gameSettings;
             _audioModel = audioModel;
+            _localizationText = localizationText;
 
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.GameSettingsMenuUi;
@@ -214,13 +218,19 @@ namespace _Root.Scripts.Controllers
         {
             _backButton = _root.Q<Button>(GameSettingsMenuUiKey.BackButton);
             _easyButton = _root.Q<Button>(GameSettingsMenuUiKey.EasyButton);
+            _easyButton.text = _localizationText.GetEasyTest();
             _normalButton = _root.Q<Button>(GameSettingsMenuUiKey.NormalButton);
+            _normalButton.text = _localizationText.GetNormalText();
             _hardButton = _root.Q<Button>(GameSettingsMenuUiKey.HardButton);
+            _hardButton.text = _localizationText.GetHardText();
             _additionButton = _root.Q<Button>(GameSettingsMenuUiKey.AdditionButton);
             _subtractionButton = _root.Q<Button>(GameSettingsMenuUiKey.Subtraction);
             _multiplyButton = _root.Q<Button>(GameSettingsMenuUiKey.MultiplyButton);
             _divisionButton = _root.Q<Button>(GameSettingsMenuUiKey.DivisionButton);
             _startButton = _root.Q<Button>(GameSettingsMenuUiKey.StartButton);
+            _startButton.text = _localizationText.GetStartText();
+            _menuText = _root.Q<Label>(GameSettingsMenuUiKey.MenuText);
+            _menuText.text = _localizationText.GetMenuText();
         }
 
         private void VisualComplexityFocusButton()

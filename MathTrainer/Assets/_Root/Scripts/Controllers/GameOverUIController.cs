@@ -1,4 +1,5 @@
 ﻿using _Root.Scripts.Enums;
+using _Root.Scripts.Interfaces;
 using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
 using Controllers;
@@ -18,6 +19,7 @@ namespace _Root.Scripts.Controllers
         private readonly float _pointCount;
         private readonly GameSettings _gameSettings;
         private readonly AudioModel _audioModel;
+        private readonly ILocalization _localizationText;
 
         private VisualElement _root;
 
@@ -31,9 +33,16 @@ namespace _Root.Scripts.Controllers
         private Label _recordsDivisionText;
         private Label _recordsSubtractionText;
         private Label _recordsAdditionText;
+        private Label _pointsTextText;
+        private Label _recordMultiplicationText;
+        private Label _recordDivisionText;
+        private Label _recordSubtractionText;
+        private Label _recordAdditionText;
 
+        
         public GameOverUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
-            Records records, float pointCount, GameSettings gameSettings, AudioModel audioModel)
+            Records records, float pointCount, GameSettings gameSettings, AudioModel audioModel,
+            ILocalization localizationText)
         {
             _profilePlayer = profilePlayer;
             _uiDocument = uiDocument;
@@ -42,6 +51,7 @@ namespace _Root.Scripts.Controllers
             _pointCount = pointCount;
             _gameSettings = gameSettings;
             _audioModel = audioModel;
+            _localizationText = localizationText;
 
             _uiDocument.rootVisualElement.Clear();
             _uiDocument.visualTreeAsset = _uiManager.GameOverUi;
@@ -150,6 +160,7 @@ namespace _Root.Scripts.Controllers
         private void AddElement()
         {
             _mainMenuButton = _root.Q<Button>(GameOverKey.MenuButtonKey);
+            _mainMenuButton.text = _localizationText.GetMenuText();
             _resultLabel = _root.Q<Label>(GameOverKey.ResultCountKey);
             
             _recordsMultiplication = _root.Q<VisualElement>(GameOverKey.RecordsMultiplication);
@@ -160,6 +171,19 @@ namespace _Root.Scripts.Controllers
             _recordsDivisionText = _root.Q<Label>(GameOverKey.RecordsDivisionText);
             _recordsSubtractionText = _root.Q<Label>(GameOverKey.RecordsSubtractionText);
             _recordsAdditionText = _root.Q<Label>(GameOverKey.RecordsAdditionText);
+
+            _pointsTextText = _root.Q<Label>(GameOverKey.PointsText);
+            _pointsTextText.text = _localizationText.GetPointsText();
+            
+            _recordMultiplicationText = _root.Q<Label>(GameOverKey.RecordMultiplicationText);
+            _recordMultiplicationText.text = _localizationText.GetRecordText();
+            _recordDivisionText = _root.Q<Label>(GameOverKey.RecordDivisionText);
+            _recordDivisionText.text = _localizationText.GetRecordText();
+            _recordSubtractionText = _root.Q<Label>(GameOverKey.RecordSubtractionText);
+            _recordSubtractionText.text = _localizationText.GetRecordText();
+            _recordAdditionText = _root.Q<Label>(GameOverKey.RecordAdditionText);
+            _recordAdditionText.text = _localizationText.GetRecordText();
+            
         }
 
         private void Save()
