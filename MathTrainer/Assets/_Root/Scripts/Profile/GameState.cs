@@ -34,6 +34,7 @@
         GameOver,
         GameSettingsMenuUiController,
         Records,
-        Settings
+        Settings,
+        TutorialUiController
     }
 }

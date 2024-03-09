@@ -15,6 +15,7 @@
         public string NormalText { get; }
         public string HardText { get; }
         public string LanguageText { get; }
+        public string TutorialText { get; }
     }
     
 }

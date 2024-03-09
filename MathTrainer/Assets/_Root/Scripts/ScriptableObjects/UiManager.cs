@@ -14,7 +14,8 @@ namespace _Root.Scripts.ScriptableObjects
         [SerializeField] private VisualTreeAsset _gameSettingsMenuUi;
         [SerializeField] private VisualTreeAsset _recordsUI;
         [SerializeField] private VisualTreeAsset _settingsUI;
-
+        [SerializeField] private VisualTreeAsset _tutorialUI;
+        
         public VisualTreeAsset GameUi => _gameUi;
         public VisualTreeAsset MainUi => _mainUi;
         public VisualTreeAsset GameOverUi => _gameOverUi;
@@ -23,5 +24,6 @@ namespace _Root.Scripts.ScriptableObjects
         public VisualTreeAsset GameSettingsMenuUi => _gameSettingsMenuUi;
         public VisualTreeAsset RecordsUI => _recordsUI;
         public VisualTreeAsset SettingsUI => _settingsUI;
+        public VisualTreeAsset TutorialUI => _tutorialUI;
     }
 }

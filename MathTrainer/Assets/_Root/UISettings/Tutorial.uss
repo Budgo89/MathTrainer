@@ -1,0 +1,170 @@
+.maskOff {
+    background-color: rgba(0, 0, 0, 0);
+    transition-duration: 1s;
+}
+
+.maskOn {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition-duration: 1s;
+}
+
+.Item9Position1 {
+    position: relative;
+    left: auto;
+    top: auto;
+    transition-duration: 2s;
+}
+
+.Item2Position1 {
+    left: auto;
+    top: auto;
+    transition-duration: 2s;
+    background-image: url('project://database/Assets/_Root/Images/Tutorial/item2.png?fileID=2800000&guid=29581e588c72f804f922732bf66d52ad&type=3#item2');
+}
+
+.resultPosition1 {
+    position: absolute;
+    left: 406px;
+    top: 489px;
+}
+
+.multiplicationPosition1 {
+    position: absolute;
+    left: 408px;
+    top: 1480px;
+}
+
+.Item9Position2 {
+    left: -100px;
+    position: relative;
+    top: -500px;
+    transition-duration: 2s;
+}
+
+.Item2Position2 {
+    left: 500px;
+    position: absolute;
+    top: 323px;
+    transition-duration: 2s;
+}
+
+.multiplicationPosition2 {
+    position: absolute;
+    left: 224px;
+    top: 358px;
+    transition-duration: 2s;
+}
+
+.resultPosition2 {
+    left: 740px;
+    position: absolute;
+    top: 358px;
+}
+
+.gestureOn {
+    left: 337px;
+    position: absolute;
+    top: 700px;
+    transition-duration: 2s;
+    display: flex;
+}
+
+.gestureOff {
+    left: 337px;
+    position: absolute;
+    top: 700px;
+    transition-duration: 2s;
+    display: none;
+}
+
+.gesturePosition2 {
+    left: 157px;
+    position: absolute;
+    top: 701px;
+    transition-duration: 2s;
+}
+
+.Item2Position3 {
+    left: 203px;
+    position: absolute;
+    top: 693px;
+}
+
+.Item18 {
+    background-image: url('project://database/Assets/_Root/Images/Tutorial/item18.png?fileID=2800000&guid=aa8513360e5cfe04a983031dbacb5651&type=3#item18');
+}
+
+#Next {
+    width: 100%;
+    height: 100%;
+}
+
+#Next:hover {
+    width: 120%;
+    height: 120%;
+    transition-duration: 500ms;
+}
+
+.contour {
+    background-color: rgb(119, 245, 245);
+}
+
+.filling {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    background-color: rgb(9, 19, 16);
+}
+
+.pointStyle1000 {
+    font-size: 60px;
+}
+
+.pointStyle {
+    font-size: 75px;
+}
+
+.pointStyle10000 {
+    font-size: 50px;
+}
+
+.MultiplicationIcon {
+    background-image: url('project://database/Assets/_Root/Images/icon/Multiplication.png?fileID=2800000&guid=5febf8f5b986c2f48b78efd3fe18d766&type=3#Multiplication');
+}
+
+.DivisionIcon {
+    background-image: url('project://database/Assets/_Root/Images/icon/Division.png?fileID=2800000&guid=a9e703b0fa21c2642be4a5fbd31a46c8&type=3#Division');
+}
+
+.SubtractionIcon {
+    background-image: url('project://database/Assets/_Root/Images/icon/Subtraction.png?fileID=2800000&guid=9eef9a07254eb7545bda967364b9e678&type=3#Subtraction');
+}
+
+.AdditionIcon {
+    background-image: url('project://database/Assets/_Root/Images/icon/Addition.png?fileID=2800000&guid=b90a91aff2ec78e44ad65edf8942edf4&type=3#Addition');
+}
+
+.pointStyle100000 {
+    font-size: 30px;
+}
+
+.BackButton:focus {
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    transition-duration: 0.5s;
+}
+
+.BackButton {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+}

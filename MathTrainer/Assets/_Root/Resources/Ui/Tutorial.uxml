@@ -1,0 +1,114 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Root/UISettings/Tutorial.uss?fileID=7433441132597879392&amp;guid=0c4225ee43f263545be2b0b1c530b08b&amp;type=3#Tutorial" />
+    <ui:VisualElement style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+        <ui:VisualElement name="Bg" style="position: relative; left: auto; top: auto; right: auto; bottom: auto; -unity-background-scale-mode: scale-to-fit; width: 100%; height: 100%;">
+            <ui:VisualElement name="bg" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg.png?fileID=2800000&amp;guid=f6622edce20707645a3a9fe420a1f8a8&amp;type=3#bg&apos;);">
+                <ui:VisualElement name="Hat" style="width: auto; height: 20%; background-color: rgba(255, 255, 255, 0);">
+                    <ui:VisualElement name="Top" style="width: auto; height: 120px; flex-direction: row; position: absolute; left: 80px; top: 160px; right: 80px; align-items: center; justify-content: space-around;">
+                        <ui:VisualElement name="Back" class="contour" style="width: 120px; height: 120px; position: absolute; left: 0;">
+                            <ui:VisualElement class="filling">
+                                <ui:Button display-tooltip-when-elided="true" name="BackButton" enable-rich-text="false" class="BackButton" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; background-image: url(&apos;project://database/Assets/_Root/Images/arrow.png?fileID=2800000&amp;guid=7d0ca0f3d5c4f1b4084bcb3597425fc9&amp;type=3#arrow&apos;); -unity-background-scale-mode: scale-to-fit; background-color: rgba(88, 88, 88, 0); position: absolute; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Points" class="contour" style="width: auto; align-items: center; justify-content: center; position: absolute; left: 160px; height: 120px; right: 140px;">
+                            <ui:VisualElement name="Points" class="filling" style="-unity-background-scale-mode: scale-to-fit; flex-direction: row; align-items: center; justify-content: center;">
+                                <ui:VisualElement style="position: absolute; height: 80px; width: 270px; left: 15px; background-color: rgba(68, 251, 185, 0.75); -unity-text-align: middle-left; flex-direction: row; align-items: center; justify-content: center; right: auto;">
+                                    <ui:Label text="POINTS" display-tooltip-when-elided="true" name="PointsText" style="-unity-background-image-tint-color: rgb(255, 0, 0); color: rgb(9, 19, 16); font-size: 45px; -unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial; top: 5px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement style="position: absolute; height: 80px; left: 300px; right: 15px; flex-direction: row; align-items: center; justify-content: center;">
+                                    <ui:Label text="9999" display-tooltip-when-elided="true" name="PointsCount" view-data-key="PointsCount" class="pointStyle" style="color: rgb(119, 245, 245); -unity-font-style: normal; justify-content: center; -unity-text-align: middle-left; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial; top: 5px; left: auto; position: relative;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="Timer" class="contour" style="width: 120px; justify-content: center; align-items: center; position: absolute; height: 120px; right: 0;">
+                            <ui:VisualElement name="Timer" class="filling" style="-unity-background-scale-mode: scale-to-fit; flex-direction: row; align-items: center; justify-content: center;">
+                                <ui:Label text="7" display-tooltip-when-elided="true" name="Timer" view-data-key="Timer" style="font-size: 80px; -unity-background-image-tint-color: rgb(0, 0, 0); color: rgb(255, 151, 170); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial; -unity-text-align: middle-left; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; top: 5px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="Game" style="height: 60%;">
+                    <ui:VisualElement style="position: absolute; left: 80px; right: 80px; height: auto; background-image: url(&apos;project://database/Assets/_Root/Images/playing%20field.png?fileID=2800000&amp;guid=8a6ae922c54ed8c42bfb5900acd3fcc4&amp;type=3#playing field&apos;); top: 115px; align-items: center; bottom: -40px;">
+                        <ui:VisualElement name="Mask1" class="maskOff" style="width: 200%; height: 4613px; position: absolute; top: -904px;">
+                            <ui:VisualElement name="equals" style="position: absolute; width: 100px; height: 151px; top: 323px; left: 650px;">
+                                <ui:Label text="=" display-tooltip-when-elided="true" enable-rich-text="true" style="width: 100%; height: 100%; color: rgb(161, 255, 80); -unity-font-style: bold; font-size: 100px; -unity-text-align: middle-center; display: none;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="gesture" class="gestureOn gesturePosition2 gestureOff" style="background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/gesture-tap-hold.png?fileID=2800000&amp;guid=7bfd7ef5622e68045ac737634b700684&amp;type=3#gesture-tap-hold&apos;); width: 214px; height: 206px; display: none;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="TypeGame" style="position: absolute; width: 60px; height: 60px; bottom: 25px;" />
+                        <ui:VisualElement style="width: 100%; height: 10%; top: 0; flex-direction: row;">
+                            <ui:VisualElement style="width: 35%;" />
+                            <ui:VisualElement name="result" class="resultPosition1" style="background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/result.png?fileID=2800000&amp;guid=b5f22437b6412764090c27fdd8310b35&amp;type=3#result&apos;); width: 30%; height: 95%; transition-duration: 2s; top: auto; left: auto; position: relative;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="width: 100%; height: 81%;">
+                            <ui:VisualElement style="width: 100%; height: 20%;" />
+                            <ui:VisualElement style="width: 100%; height: 15%; flex-direction: row;">
+                                <ui:VisualElement style="width: 10%; height: 100%;" />
+                                <ui:VisualElement name="Item9" class="Item9Position1" style="background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/item9.png?fileID=2800000&amp;guid=51ceed05970ffce46b968fe2f8f30c41&amp;type=3#item9&apos;); height: 100%; width: 15%; -unity-background-scale-mode: scale-to-fit; left: auto;" />
+                                <ui:VisualElement name="Item2" class="Item2Position1" style="height: 100%; width: 15%; -unity-background-scale-mode: scale-to-fit;" />
+                                <ui:VisualElement style="width: 20%; height: 100%;" />
+                                <ui:VisualElement name="Item11" class="Item2Position1" style="height: 100%; width: 15%; position: relative; left: auto; top: auto; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/item.png?fileID=2800000&amp;guid=62ea026e7c90519429af41767c6c71df&amp;type=3#item&apos;); align-items: stretch; justify-content: center; flex-direction: row;">
+                                    <ui:Label text="2" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 70px; -unity-text-align: middle-center; color: rgb(68, 251, 185); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="Item12" class="Item2Position1" style="height: 100%; width: 15%; position: relative; left: auto; top: auto; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/item.png?fileID=2800000&amp;guid=62ea026e7c90519429af41767c6c71df&amp;type=3#item&apos;); align-items: stretch; justify-content: center; flex-direction: row;">
+                                    <ui:Label text="7" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 70px; -unity-text-align: middle-center; color: rgb(68, 251, 185); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement style="height: 30%;" />
+                            <ui:VisualElement style="width: 100%; height: 15%; flex-direction: row;">
+                                <ui:VisualElement style="width: 10%; height: 100%;" />
+                                <ui:VisualElement name="Item13" class="Item2Position1" style="height: 100%; width: 15%; position: relative; left: auto; top: auto; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/item.png?fileID=2800000&amp;guid=62ea026e7c90519429af41767c6c71df&amp;type=3#item&apos;); align-items: stretch; justify-content: center; flex-direction: row;">
+                                    <ui:Label text="3" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 70px; -unity-text-align: middle-center; color: rgb(68, 251, 185); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="Item14" class="Item2Position1" style="height: 100%; width: 15%; position: relative; left: auto; top: auto; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/item.png?fileID=2800000&amp;guid=62ea026e7c90519429af41767c6c71df&amp;type=3#item&apos;); align-items: stretch; justify-content: center; flex-direction: row;">
+                                    <ui:Label text="5" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 70px; -unity-text-align: middle-center; color: rgb(68, 251, 185); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement style="width: 20%; height: 100%;" />
+                                <ui:VisualElement name="Item15" class="Item2Position1" style="height: 100%; width: 15%; position: relative; left: auto; top: auto; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/item.png?fileID=2800000&amp;guid=62ea026e7c90519429af41767c6c71df&amp;type=3#item&apos;); align-items: stretch; justify-content: center; flex-direction: row;">
+                                    <ui:Label text="4" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 70px; -unity-text-align: middle-center; color: rgb(68, 251, 185); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="Item16" class="Item2Position1" style="height: 100%; width: 15%; position: relative; left: auto; top: auto; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/item.png?fileID=2800000&amp;guid=62ea026e7c90519429af41767c6c71df&amp;type=3#item&apos;); align-items: stretch; justify-content: center; flex-direction: row;">
+                                    <ui:Label text="9" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 70px; -unity-text-align: middle-center; color: rgb(68, 251, 185); -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="Mask2" class="maskOff" style="width: 1612px; height: 789px; position: absolute; top: 560px;">
+                                <ui:VisualElement name="equals" style="position: absolute; width: 100px; height: 151px; top: 323px; left: 650px;">
+                                    <ui:Label text="=" display-tooltip-when-elided="true" enable-rich-text="true" style="width: 100%; height: 100%; color: rgb(161, 255, 80); -unity-font-style: bold; font-size: 100px; -unity-text-align: middle-center; display: none;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="gesture" class="gestureOn gesturePosition2 gestureOff" style="background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/gesture-tap-hold.png?fileID=2800000&amp;guid=7bfd7ef5622e68045ac737634b700684&amp;type=3#gesture-tap-hold&apos;); width: 214px; height: 206px; display: none;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="Mask3" class="maskOff" style="width: 896px; height: 1141px; position: absolute; top: 208px; left: 716px;">
+                                <ui:VisualElement name="equals" style="position: absolute; width: 100px; height: 151px; top: 323px; left: 650px;">
+                                    <ui:Label text="=" display-tooltip-when-elided="true" enable-rich-text="true" style="width: 100%; height: 100%; color: rgb(161, 255, 80); -unity-font-style: bold; font-size: 100px; -unity-text-align: middle-center; display: none;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="gesture" class="gestureOn gesturePosition2 gestureOff" style="background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/gesture-tap-hold.png?fileID=2800000&amp;guid=7bfd7ef5622e68045ac737634b700684&amp;type=3#gesture-tap-hold&apos;); width: 214px; height: 206px; display: none;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement style="width: 100%; height: 9%; top: auto; flex-direction: row; bottom: 0; position: relative;">
+                            <ui:VisualElement style="width: 35%;" />
+                            <ui:VisualElement name="multiplication" class="multiplicationPosition1" style="background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/multiplication.png?fileID=2800000&amp;guid=c4cf34631b6d9fe4e856b125f4e8c059&amp;type=3#multiplication&apos;); width: 30%; height: 100%; transition-duration: 2s; top: auto; left: auto; position: relative;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="Basement" style="height: 20%; justify-content: flex-end;">
+                    <ui:VisualElement name="Attempts" class="contour" style="height: 120px; -unity-background-scale-mode: scale-to-fit; align-items: center; justify-content: center; position: absolute; left: 240px; right: 240px; bottom: 120px;">
+                        <ui:VisualElement class="filling" style="justify-content: center; align-items: center; flex-direction: row;">
+                            <ui:VisualElement style="position: absolute; left: 15px; height: 80px; width: 320px; background-color: rgba(68, 251, 185, 0.75); -unity-text-align: middle-left; flex-direction: row; align-items: center; justify-content: center;">
+                                <ui:Label text="ATTEMPTS" display-tooltip-when-elided="true" name="AttemptsText" style="right: auto; font-size: 40px; color: rgb(0, 0, 0); -unity-text-align: middle-center; -unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial; top: 5px;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="position: absolute; top: 15px; bottom: 15px; right: 15px; left: 340px; flex-direction: row; justify-content: center; align-items: center;">
+                                <ui:Label text="05" display-tooltip-when-elided="true" name="Attempts" view-data-key="Attempts" style="color: rgb(119, 245, 245); font-size: 80px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-text-align: lower-center; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial; top: 5px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Mask4" class="maskOff" style="width: 1864px; height: 1141px; position: absolute; top: 208px; left: -252px;">
+                        <ui:VisualElement name="equals" style="position: absolute; width: 100px; height: 151px; top: 323px; left: 650px;">
+                            <ui:Label text="=" display-tooltip-when-elided="true" enable-rich-text="true" style="width: 100%; height: 100%; color: rgb(161, 255, 80); -unity-font-style: bold; font-size: 100px; -unity-text-align: middle-center; display: none;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="gesture" class="gestureOn gesturePosition2 gestureOff" style="background-image: url(&apos;project://database/Assets/_Root/Images/Tutorial/gesture-tap-hold.png?fileID=2800000&amp;guid=7bfd7ef5622e68045ac737634b700684&amp;type=3#gesture-tap-hold&apos;); width: 214px; height: 206px; display: none;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

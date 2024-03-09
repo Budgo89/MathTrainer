@@ -21,6 +21,7 @@ namespace _Root.Scripts.Controllers
         private Button _buttonGame;
         private Button _buttonRecords;
         private Button _buttonSettings;
+        private Button _buttonTutorial;
         
 
         public MainMenuUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
@@ -45,9 +46,25 @@ namespace _Root.Scripts.Controllers
             _buttonGame.RegisterCallback<ClickEvent>(ClickButtonGame);
             _buttonRecords.RegisterCallback<ClickEvent>(ClickButtonRecords);
             _buttonSettings.RegisterCallback<ClickEvent>(ClickButtonSettings);
+            _buttonTutorial.RegisterCallback<ClickEvent>(ClickButtonTutorial);
             _buttonGame.RegisterCallback<ClickEvent>(AudioPlay);
             _buttonRecords.RegisterCallback<ClickEvent>(AudioPlay);
             _buttonSettings.RegisterCallback<ClickEvent>(AudioPlay);
+            _buttonTutorial.RegisterCallback<ClickEvent>(AudioPlay);
+        }
+
+        private void ClickButtonTutorial(ClickEvent evt)
+        {
+            _buttonTutorial.RegisterCallback<TransitionEndEvent>(ClickButtonTutorial);
+        }
+
+        private void ClickButtonTutorial(TransitionEndEvent evt)
+        {
+            if (!_buttonTutorial.ClassListContains(MainMenuUIKey.StartButtonStyle) && evt.target == _buttonTutorial)
+            {
+                _profilePlayer.CurrentState.Value = GameState.TutorialUiController;
+            }
+            _buttonTutorial.UnregisterCallback<TransitionEndEvent>(ClickButtonTutorial);
         }
 
         private void ClickButtonGame(TransitionEndEvent evt)
@@ -106,6 +123,8 @@ namespace _Root.Scripts.Controllers
             _buttonRecords.text = _localizationText.GetRecordsText();
             _buttonSettings = _root.Q<Button>(MainMenuUIKey.SettingsButtonKey);
             _buttonSettings.text = _localizationText.GetSettingsText();
+            _buttonTutorial = _root.Q<Button>(MainMenuUIKey.TutorialButtonKey);
+            _buttonTutorial.text = _localizationText.GetTutorialText();
         }
     }
 }

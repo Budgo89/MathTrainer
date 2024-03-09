@@ -30,6 +30,7 @@ namespace _Root.Scripts.Controllers
         private GameSettingsMenuUiController _gameSettingsMenuUiController;
         private RecordsUIController _recordsUIController;
         private SettingsUIController _settingsUIController;
+        private TutorialUiController _tutorialUiController;
         
         private GameSettings _gameSettings;
         private float _pointCount = 100;
@@ -146,6 +147,9 @@ namespace _Root.Scripts.Controllers
                 case GameState.GameOver:
                     _gameOverUIController = new GameOverUIController(_profilePlayer, _uiDocument,_uiManager, _records, _pointCount, _gameSettings, _audioModel, _localizationText.Localization);
                     break;
+                case GameState.TutorialUiController:
+                    _tutorialUiController = new TutorialUiController(_profilePlayer, _uiDocument, _uiManager);
+                    break;
             }
         }
 
@@ -166,6 +170,7 @@ namespace _Root.Scripts.Controllers
             _gameSettingsMenuUiController?.Dispose();
             _recordsUIController?.Dispose();
             _settingsUIController?.Dispose();
+            _tutorialUiController?.Dispose();
         }
     }
 }

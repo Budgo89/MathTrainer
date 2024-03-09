@@ -9,5 +9,6 @@
         public const string StartButtonStyle = "StartButton:focus";
         public const string RecordButtonStyle = "ButtonAnim:focus";
         public const string SettingsButtonStyle = "ButtonAnim:focus";
+        public const string TutorialButtonKey = "TutorialButton";
     }
 }

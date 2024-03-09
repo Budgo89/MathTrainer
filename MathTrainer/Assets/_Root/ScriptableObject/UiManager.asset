@@ -20,3 +20,4 @@ MonoBehaviour:
   _gameSettingsMenuUi: {fileID: 9197481963319205126, guid: e0a0e5ae215358b4cb5136407c4991e9, type: 3}
   _recordsUI: {fileID: 9197481963319205126, guid: e5eebb73ebe484e49a505674be27a0ab, type: 3}
   _settingsUI: {fileID: 9197481963319205126, guid: e1104722f5cb94840a559afcac027056, type: 3}
+  _tutorialUI: {fileID: 9197481963319205126, guid: a591cb6e9a71f784fbaddfed28f1dff7, type: 3}

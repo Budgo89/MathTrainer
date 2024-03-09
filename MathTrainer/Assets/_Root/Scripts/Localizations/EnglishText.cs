@@ -17,5 +17,6 @@ namespace _Root.Scripts.Localizations
     public string NormalText => "NORMAL";
     public string HardText => "HARD";
     public string LanguageText => "LANGUAGE";
+    public string TutorialText => "TUTORIAL";
     }
 }

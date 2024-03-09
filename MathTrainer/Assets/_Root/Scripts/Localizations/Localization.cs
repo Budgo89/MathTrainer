@@ -31,5 +31,6 @@ namespace _Root.Scripts.Localizations
 
         string ILocalization.GetHardText() => _localizationText.HardText;
         public string GetLanguageText() => _localizationText.LanguageText;
+        public string GetTutorialText() => _localizationText.TutorialText;
     }
 }
