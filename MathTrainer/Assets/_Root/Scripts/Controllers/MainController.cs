@@ -1,5 +1,4 @@
 ﻿using _Root.Scripts.Interfaces;
-using _Root.Scripts.Localizations;
 using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
 using Controllers;

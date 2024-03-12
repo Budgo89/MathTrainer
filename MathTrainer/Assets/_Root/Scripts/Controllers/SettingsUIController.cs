@@ -1,5 +1,4 @@
 ﻿using System;
-using _Root.Scripts.Interfaces;
 using _Root.Scripts.Localizations;
 using _Root.Scripts.Models;
 using _Root.Scripts.ScriptableObjects;
@@ -106,21 +105,21 @@ namespace _Root.Scripts.Controllers
                     _audioModel.AudioMixer.SetFloat("Volume", value);
 
                     RemoveStyle();
-                    _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonDeActive);
-                    _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffActive);
+                    _visualElementOnSound.AddToClassList(SettingsUIKey.LocalizationOffStyle);
+                    _visualElementOffSound.AddToClassList(SettingsUIKey.LocalizationOnStyle);
                 }
                 else
                 {
                     RemoveStyle();
-                    _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonActive);
-                    _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffDeActive);
+                    _visualElementOnSound.AddToClassList(SettingsUIKey.LocalizationOnStyle);
+                    _visualElementOffSound.AddToClassList(SettingsUIKey.LocalizationOffStyle);
                 }
             }
             else
             {
                 RemoveStyle();
-                _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonActive);
-                _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffDeActive);
+                _visualElementOnSound.AddToClassList(SettingsUIKey.LocalizationOnStyle);
+                _visualElementOffSound.AddToClassList(SettingsUIKey.LocalizationOffStyle);
             }
         }
 
@@ -216,8 +215,8 @@ namespace _Root.Scripts.Controllers
         private void ClickButtonOffSound(ClickEvent evt)
         {
             RemoveStyle();
-            _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonDeActive);
-            _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffActive);
+            _visualElementOnSound.AddToClassList(SettingsUIKey.LocalizationOffStyle);
+            _visualElementOffSound.AddToClassList(SettingsUIKey.LocalizationOnStyle);
             _isAudio = false;
             float value = -100f;
             _audioModel.AudioMixer.SetFloat("Volume", value);
@@ -227,17 +226,17 @@ namespace _Root.Scripts.Controllers
 
         private void RemoveStyle()
         {
-            _visualElementOnSound.RemoveFromClassList(SettingsUIKey.StyleSoundOnButtonActive);
-            _visualElementOnSound.RemoveFromClassList(SettingsUIKey.StyleSoundOnButtonDeActive);
-            _visualElementOffSound.RemoveFromClassList(SettingsUIKey.StyleSoundOffActive);
-            _visualElementOffSound.RemoveFromClassList(SettingsUIKey.StyleSoundOffDeActive);
+            _visualElementOnSound.RemoveFromClassList(SettingsUIKey.LocalizationOnStyle);
+            _visualElementOnSound.RemoveFromClassList(SettingsUIKey.LocalizationOffStyle);
+            _visualElementOffSound.RemoveFromClassList(SettingsUIKey.LocalizationOnStyle);
+            _visualElementOffSound.RemoveFromClassList(SettingsUIKey.LocalizationOffStyle);
         }
 
         private void ClickButtonOnSound(ClickEvent evt)
         {
             RemoveStyle();
-            _visualElementOnSound.AddToClassList(SettingsUIKey.StyleSoundOnButtonActive);
-            _visualElementOffSound.AddToClassList(SettingsUIKey.StyleSoundOffDeActive);
+            _visualElementOnSound.AddToClassList(SettingsUIKey.LocalizationOnStyle);
+            _visualElementOffSound.AddToClassList(SettingsUIKey.LocalizationOffStyle);
             _isAudio = true;
             float volume = _slider.value / 100;
             volume = volume == 0 ? 0.00001f : volume;
