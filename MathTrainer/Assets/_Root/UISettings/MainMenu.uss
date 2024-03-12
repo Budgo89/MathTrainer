@@ -260,8 +260,8 @@
 }
 
 .StartButton:focus {
-    background-image: url('project://database/Assets/_Root/Images/btn_l_pressed.png?fileID=2800000&guid=a857650ed7415fb46822fb649c3020f2&type=3#btn_l_pressed');
-    transition-duration: 0.5s;
+    background-image: url('project://database/Assets/_Root/Images/btn_l_selected%201.png?fileID=2800000&guid=73b87567edbe9c449bc7ade76e228bc6&type=3#btn_l_selected 1');
+    transition-duration: 0.25s;
 }
 
 .StartButtonTest {
@@ -277,7 +277,7 @@
     top: 20px;
     right: 20px;
     bottom: 20px;
-    transition-duration: 0.5s;
+    transition-duration: 0.25s;
 }
 
 .BackButton {
@@ -299,7 +299,7 @@
 
 .ButtonAnim:focus {
     background-color: rgba(68, 251, 185, 0.75);
-    transition-duration: 0.5s;
+    transition-duration: 0.25s;
     left: 20px;
     top: 20px;
     right: 20px;
