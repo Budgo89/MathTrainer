@@ -46,11 +46,9 @@ namespace _Root.Scripts.Controllers
             _buttonGame.RegisterCallback<ClickEvent>(ClickButtonGame);
             _buttonRecords.RegisterCallback<ClickEvent>(ClickButtonRecords);
             _buttonSettings.RegisterCallback<ClickEvent>(ClickButtonSettings);
-            _buttonTutorial.RegisterCallback<ClickEvent>(ClickButtonTutorial);
             _buttonGame.RegisterCallback<ClickEvent>(AudioPlay);
             _buttonRecords.RegisterCallback<ClickEvent>(AudioPlay);
             _buttonSettings.RegisterCallback<ClickEvent>(AudioPlay);
-            _buttonTutorial.RegisterCallback<ClickEvent>(AudioPlay);
         }
 
         private void ClickButtonTutorial(ClickEvent evt)
@@ -123,8 +121,6 @@ namespace _Root.Scripts.Controllers
             _buttonRecords.text = _localizationText.GetRecordsText();
             _buttonSettings = _root.Q<Button>(MainMenuUIKey.SettingsButtonKey);
             _buttonSettings.text = _localizationText.GetSettingsText();
-            _buttonTutorial = _root.Q<Button>(MainMenuUIKey.TutorialButtonKey);
-            _buttonTutorial.text = _localizationText.GetTutorialText();
         }
     }
 }

@@ -27,8 +27,10 @@
             <ui:VisualElement name="background" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/_Root/Images/background/bg_dots.png?fileID=2800000&amp;guid=643cc3d5edf49a2449488cbebe5196c4&amp;type=3#bg_dots&apos;); position: absolute; left: 0; top: 0; right: 0; bottom: 0; display: none;" />
             <ui:VisualElement name="Settings" style="width: 100%; height: 75%; flex-direction: column; justify-content: flex-end;">
                 <ui:VisualElement style="position: absolute; top: 0; right: 140px; left: 140px; bottom: 0; justify-content: flex-end;">
-                    <ui:VisualElement name="Volume" style="width: 100%; height: 120px;">
-                        <ui:VisualElement name="Frame" class="Frame">
+                    <ui:VisualElement name="Volume" style="width: 100%; height: 120px; flex-direction: row;">
+                        <ui:VisualElement name="VolumeIcon" style="height: 120px; width: 140px; background-image: url(&apos;project://database/Assets/_Root/Images/icon/btn_s%20(3).png?fileID=2800000&amp;guid=7efcc8bfb7e38d64caba8c3af33c410e&amp;type=3#btn_s (3)&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                        <ui:VisualElement style="width: 20px;" />
+                        <ui:VisualElement name="Frame" class="Frame" style="height: 120px;">
                             <ui:VisualElement name="Background" class="Background" style="flex-direction: row; justify-content: space-between; align-items: center;">
                                 <ui:VisualElement name="VOLUME" class="Record" style="flex-direction: row; align-items: center;">
                                     <ui:Label text="VOLUME" display-tooltip-when-elided="true" name="Volume" class="RecordText" style="-unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />
@@ -70,8 +72,10 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement style="width: 100%; height: 80px;" />
-                    <ui:VisualElement name="Language" style="width: 100%; height: 120px;">
-                        <ui:VisualElement name="Frame" class="Frame">
+                    <ui:VisualElement name="Language" style="width: 100%; height: 120px; flex-direction: row;">
+                        <ui:VisualElement name="LanguageIcon" style="width: 140px; height: 120px; background-image: url(&apos;project://database/Assets/_Root/Images/icon/btn_s%20(2)%201.png?fileID=2800000&amp;guid=cd82758736f89d74db539e42feea73a1&amp;type=3#btn_s (2) 1&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                        <ui:VisualElement style="width: 20px;" />
+                        <ui:VisualElement name="Frame" class="Frame" style="height: 120px;">
                             <ui:VisualElement name="Background" class="Background" style="flex-direction: row; justify-content: space-between; align-items: center;">
                                 <ui:VisualElement name="VOLUME" class="Record" style="flex-direction: row; align-items: center;">
                                     <ui:Label text="LANGUAGE" display-tooltip-when-elided="true" name="Language" class="RecordText" style="-unity-font-style: bold; -unity-font: url(&apos;project://database/Assets/TextMesh%20Pro/Examples%20&amp;%20Extras/Fonts/aldrichrusbydaymarius.ttf?fileID=12800000&amp;guid=ec0797b55e171034691db2c0b655080d&amp;type=3#aldrichrusbydaymarius&apos;); -unity-font-definition: initial;" />

@@ -57,8 +57,9 @@ namespace _Root.Scripts.Controllers
             else if (_gameSettings.TypeGameEnum == TypeGameEnum.Division)
                 _divisionButton.AddToClassList(GameSettingsMenuUiKey.StyleBackgroundButtonMiniDivisionFocus);
             else if (_gameSettings.TypeGameEnum == TypeGameEnum.Subtraction)
-                _startButton.AddToClassList(GameSettingsMenuUiKey.StyleBackgroundButtonMiniSubtractionFocus);
-            else if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication) _multiplyButton.AddToClassList(GameSettingsMenuUiKey.StyleBackgroundButtonMiniMultiplyFocus);
+                _subtractionButton.AddToClassList(GameSettingsMenuUiKey.StyleBackgroundButtonMiniSubtractionFocus);
+            else if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication) 
+                _multiplyButton.AddToClassList(GameSettingsMenuUiKey.StyleBackgroundButtonMiniMultiplyFocus);
 
             if (_gameSettings.ComplexityEnum == ComplexityEnum.Easy)
                 _easyButton.AddToClassList(GameSettingsMenuUiKey.StyleBackgroundButtonFocus);
@@ -154,7 +155,7 @@ namespace _Root.Scripts.Controllers
 
         private void ClickStartButton(TransitionEndEvent evt)
         {
-            if (!_startButton.ClassListContains(GameSettingsMenuUiKey.StartButtonStyle) && evt.target == _startButton)
+            if (!_startButton.ClassListContains(GameSettingsMenuUiKey.StartButtonStyleFocus) && evt.target == _startButton)
             {
                 if (_gameSettings.TypeGameEnum == TypeGameEnum.Multiplication &&
                     _gameSettings.ComplexityEnum == ComplexityEnum.Easy)
@@ -229,6 +230,8 @@ namespace _Root.Scripts.Controllers
             _divisionButton = _root.Q<Button>(GameSettingsMenuUiKey.DivisionButton);
             _startButton = _root.Q<Button>(GameSettingsMenuUiKey.StartButton);
             _startButton.text = _localizationText.GetStartText();
+            _startButton.RemoveFromClassList(GameSettingsMenuUiKey.StartButtonStyle);
+            _startButton.AddToClassList(GameSettingsMenuUiKey.StartButtonStyle);
             _menuText = _root.Q<Label>(GameSettingsMenuUiKey.MenuText);
             _menuText.text = _localizationText.GetMenuText();
         }
