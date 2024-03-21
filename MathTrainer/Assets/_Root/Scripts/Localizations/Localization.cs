@@ -30,7 +30,9 @@ namespace _Root.Scripts.Localizations
         string ILocalization.GetNormalText() => _localizationText.NormalText;
 
         string ILocalization.GetHardText() => _localizationText.HardText;
-        public string GetLanguageText() => _localizationText.LanguageText;
-        public string GetTutorialText() => _localizationText.TutorialText;
+        string ILocalization.GetLanguageText() => _localizationText.LanguageText;
+        string ILocalization.GetTutorialText() => _localizationText.TutorialText;
+        string ILocalization.GetOnText() => _localizationText.OnText;
+        string ILocalization.GetOffText() => _localizationText.OffText;
     }
 }

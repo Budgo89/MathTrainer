@@ -28,5 +28,7 @@
         public const string RusIcon = "Rus";
         public const string LanguageEngButton = "LanguageEngButton";
         public const string LanguageRusButton = "LanguageRusButton";
+        public const string OnText = "OnText";
+        public const string OffText = "OffText";
     }
 }

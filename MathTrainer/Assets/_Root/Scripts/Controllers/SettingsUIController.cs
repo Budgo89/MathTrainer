@@ -39,6 +39,8 @@ namespace _Root.Scripts.Controllers
         private Label _volumeText;
         private Label _languageText;
         private Label _settingsText;
+        private Label _onText;
+        private Label _offText;
 
 
         public SettingsUIController(ProfilePlayers profilePlayer, UIDocument uiDocument, UiManager uiManager,
@@ -65,6 +67,7 @@ namespace _Root.Scripts.Controllers
             {
                 ClickEngButton();
             }
+            IndicateValueOnSound();
         }
 
         private void AddElement()
@@ -76,9 +79,12 @@ namespace _Root.Scripts.Controllers
             _settingsText = _root.Q<Label>(SettingsUIKey.SettingsText);
             _volumeText = _root.Q<Label>(SettingsUIKey.VolumeText);
             _languageText = _root.Q<Label>(SettingsUIKey.LanguageText);
+            _onText = _root.Q<Label>(SettingsUIKey.OnText);
+            _offText = _root.Q<Label>(SettingsUIKey.OffText);
             AddButtonSound();
             AddLocalization();
             AddSlider();
+            IndicateValueOnSound();
         }
 
         private void AddLocalization()
@@ -146,6 +152,8 @@ namespace _Root.Scripts.Controllers
             _volumeText.text = _localizationText.Localization.GetVolumeText();
             _languageText.text = _localizationText.Localization.GetLanguageText();
             _settingsText.text = _localizationText.Localization.GetSettingsText();
+            _onText.text = _localizationText.Localization.GetOnText();
+            _offText.text = _localizationText.Localization.GetOffText();
         }
 
         private void ClickRusButton()

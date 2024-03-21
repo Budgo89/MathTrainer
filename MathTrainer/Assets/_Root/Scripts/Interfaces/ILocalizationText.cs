@@ -16,6 +16,8 @@
         public string HardText { get; }
         public string LanguageText { get; }
         public string TutorialText { get; }
+        public string OnText { get; }
+        public string OffText { get; }
     }
     
 }

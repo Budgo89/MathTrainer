@@ -16,5 +16,7 @@
         public string GetHardText();
         public string GetLanguageText();
         public string GetTutorialText();
+        public string GetOnText();
+        public string GetOffText();
     }
 }

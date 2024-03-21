@@ -18,5 +18,7 @@ namespace _Root.Scripts.Localizations
         public string HardText => "СЛОЖНО";
         public string LanguageText => "ЯЗЫК";
         public string TutorialText => "РУКОВОДСТВО";
+        public string OnText => "ВКЛ";
+        public string OffText => "ВЫКЛ";
     }
 }

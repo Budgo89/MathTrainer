@@ -18,5 +18,7 @@ namespace _Root.Scripts.Localizations
     public string HardText => "HARD";
     public string LanguageText => "LANGUAGE";
     public string TutorialText => "TUTORIAL";
+    public string OnText => "ON";
+    public string OffText => "OFF";
     }
 }
